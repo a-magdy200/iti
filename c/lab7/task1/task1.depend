@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1637678301 source:c:\users\ahmed\music\projects\c\lab7\task1\main.c
+	<stdio.h>
+	<stdlib.h>
+
