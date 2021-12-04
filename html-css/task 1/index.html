@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Form Layout</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="mb">Register - Create Account</h1>
+    <p class="bg-gray mb">Fields marked with <span class="asterisk">*</span> are compulsory fields</p>
+<form action="#" method="post">
+    <div class="form-group">
+        <label class="bg-gray" for="name">
+            <span class="asterisk">*</span>
+            Your name
+        </label>
+        <input placeholder="Name..." type="text" name="name" id="name" />
+    </div>
+    <div class="form-group">
+        <label class="bg-gray" for="email">
+            <span class="asterisk">*</span>
+            E-mail ID
+        </label>
+        <input placeholder="example@domain.com" type="email" name="email" id="email" />
+    </div>
+    <div class="form-group">
+        <label class="bg-gray" for="alt_email">
+            Alternative E-mail ID
+        </label>
+        <input placeholder="alternative@domain.com" type="email" name="alt_email" id="alt_email" />
+    </div>
+    <div class="form-group phone-group">
+        <div class="bg-gray">Your Phone</div>
+        <div class="phone-container">
+            <div>
+                <label for="countryCode">
+                    Country Code
+                </label>
+                <input type="number" name="counterCode" id="countryCode">
+            </div>
+            <div class="separator">-</div>
+            <div>
+                <label for="cityCode">
+                    City Code
+                </label>
+                <input type="number" name="cityCode" id="cityCode">
+            </div>
+            <div class="separator">-</div>
+            <div>
+                <label for="phone">
+                    Phone Number
+                </label>
+                <input type="number" name="phone" id="phone">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="bg-gray" for="mobilePhone">
+            Mobile Phone
+        </label>
+        <input type="number" name="mobilePhone" id="mobilePhone">
+    </div>
+    <div class="form-group address-group">
+        <label class="bg-gray" for="address">
+            <span class="asterisk">*</span>
+            Your Postal Address
+        </label>
+        <textarea name="address" id="address" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <label class="bg-gray" for="country">
+            <span class="asterisk">*</span>
+            Country
+        </label>
+        <select id="country">
+            <option value="" selected disabled>
+                ---------- Select One ----------
+            </option>
+            <option value="eg">
+                Egypt
+            </option>
+            <option value="uk">
+                United Kingdom
+            </option>
+            <option value="us">
+                United States
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label class="bg-gray" for="password">
+            <span class="asterisk">*</span>
+            Password
+        </label>
+        <input type="password" name="password" id="password" />
+    </div>
+    <div class="form-group">
+        <label class="bg-gray" for="confirmPassword">
+            <span class="asterisk">*</span>
+            Re - Enter Password
+        </label>
+        <input type="password" name="confirmPassword" id="confirmPassword" />
+    </div>
+    <div class="terms">
+        <label for="terms">
+            <input type="checkbox" name="terms" id="terms" />
+            I accept the <a href="https://www.google.com" target="_blank">Terms of Use</a>
+        </label>
+    </div>
+    <div class="buttons">
+        <button type="submit">
+            Continue > >
+        </button>
+        <button type="reset">
+            Reset
+        </button>
+    </div>
+</form>
+</div>
+</body>
+</html>

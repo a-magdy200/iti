@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #f5f5f5;
+    font-family: Cairo, Tahoma, sans-serif;
+}
+textarea {
+    resize: none;
+}
+.container  {
+    max-width: 1000px;
+    margin: auto;
+    padding: 50px 0;
+}
+.bg-gray {
+    background-color: #ddd;
+}
+.asterisk {
+    color: red;
+}
+.mb {
+    margin-bottom: 20px;
+}
+p {
+    border: 1px dashed #aaa;
+    padding: 3px;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    height: 36px;
+}
+.form-group > input, .form-group > select, .form-group > div, .form-group textarea {
+    width: 60%;
+}
+.form-group input, .form-group select {
+    height: 36px;
+}
+.form-group input, textarea, .form-group select {
+    margin-left: 5px;
+    border-radius: 3px;
+    padding: 5px;
+    border: 1px solid #777;
+}
+.form-group label, .form-group div {
+    color: #777;
+}
+.form-group > label, .form-group > div:first-of-type {
+    width: 40%;
+    padding: 3px;
+}
+.form-group.phone-group > div:first-of-type, .form-group.address-group label {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.form-group > div {
+    display: flex;
+    align-items: flex-end;
+}
+.form-group.address-group {
+    height: 61px;
+}
+.form-group.phone-group {
+    align-items: flex-end;
+    height: 58px;
+}
+.form-group .separator {
+    margin: 0 5px;
+}
+.form-group > div div label {
+    margin-left: 10px;
+    font-size: 12px;
+}
+.terms, .buttons {
+    margin-left: calc(40% + 5px);
+}
+button {
+    border-radius: 3px;
+    padding: 5px 10px;
+    border: 1px solid #777777;
+    cursor: pointer;
+}
+button:hover {
+    box-shadow: 1px 1px 0px 0px #000;
+    background-color: white;
+}
+button[type=reset] {
+    margin-left: 20px;
+}
