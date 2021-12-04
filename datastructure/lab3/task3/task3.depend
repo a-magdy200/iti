@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1638611921 source:e:\work\iti\datastructure\lab3\task3\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+
