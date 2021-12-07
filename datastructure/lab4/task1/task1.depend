@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1638877877 source:c:\users\ahmed\music\projects\iti\datastructure\lab3\task1\main.c
+	<stdio.h>
+	<stdlib.h>
+
