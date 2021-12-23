@@ -35,7 +35,6 @@ Employee::Employee(char * newName) {
 	setName(newName);
 }
 Employee::Employee() {
-	name = NULL;
 	char newName[10] = "Anonymous";
 	setName(newName);
 	id = 0;
