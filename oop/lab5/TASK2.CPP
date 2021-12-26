@@ -1,0 +1,115 @@
+#include <iostream.h>
+#include <conio.h>
+class Point {
+  int x;
+  int y;
+  public:
+  Point(int x = 0, int y = 0);
+  void setX(int x);
+  void setY(int y);
+  int getX();
+  int getY();
+
+};
+class Rectangle {
+  Point p1;
+  Point p2;
+  public:
+  Rectangle(Point p1, Point p2);
+  void setP1(Point p);
+  void setP2(Point p);
+  Point getP1();
+  Point getP2();
+};
+Point::Point(int x, int y) {
+ this->x = x;
+ this->y = y;
+}
+void Point::setX(int x) {
+  this->x = x;
+}
+void Point::setY(int y) {
+  this->y = y;
+}
+int Point::getX() {
+  return x;
+}
+int Point::getY() {
+  return y;
+}
+Rectangle::Rectangle(Point p1, Point p2) {
+  this->p1 = p1;
+  this->p2 = p2;
+}
+void Rectangle::setP1(Point p) {
+  p1 = p;
+}
+void Rectangle::setP2(Point p) {
+  p2 = p;
+}
+Point Rectangle::getP1() {
+  return p1;
+}
+Point Rectangle::getP2() {
+  return p2;
+}
+void printMenu();
+void displayRect(Rectangle rect);
+int main() {
+clrscr();
+  int flag = 1;
+  int option;
+  int input;
+  Point point;
+  Rectangle rect(point, point);
+  while(flag) {
+    printMenu();
+    cout << "Operation: ";
+    cin >> option;
+    switch(option) {
+	case 1:
+	// display rectangle
+		displayRect(rect);
+		break;
+	case 2:
+	// set p1
+		cout << "Setting P1..." << endl;
+		cout << "X: ";
+		cin >> input;
+		point.setX(input);
+		cout << "Y: ";
+		cin >> input;
+		point.setY(input);
+		rect.setP1(point);
+		break;
+	case 3:
+	// set p2
+		cout << "Setting P2..." << endl;
+		cout << "X: ";
+		cin >> input;
+		point.setX(input);
+		cout << "Y: ";
+		cin >> input;
+		point.setY(input);
+		rect.setP2(point);
+		break;
+	case 0:
+		flag = 0;
+		break;
+    }
+    cout << endl;
+  }
+  return 0;
+}
+void displayRect(Rectangle rect) {
+   cout << endl << "X1: " << rect.getP1().getX() << endl;
+   cout << "X2: " << rect.getP2().getX() << endl;
+   cout << "Y1: " << rect.getP1().getY() << endl;
+   cout << "Y2: " << rect.getP2().getY() << endl << endl;
+}
+void printMenu() {
+  cout << "1. Display Rectangle" << endl;
+  cout << "2. Set P1" << endl;
+  cout << "3. Set P2" << endl;
+  cout << "0. Exit" << endl;
+}
