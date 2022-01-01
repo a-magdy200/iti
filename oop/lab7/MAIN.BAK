@@ -1,0 +1,112 @@
+#include <iostream.h>
+#include <conio.h>
+class Shape {
+	protected:
+	int dim1;
+	int dim2;
+	public:
+	Shape() {
+		dim1 = dim2 = 0;
+	}
+	Shape(int dim1) {
+		this->dim1 = dim2 = dim1;
+	}
+	Shape(int dim1, int dim2) {
+		this->dim1 = dim1;
+		this->dim2 = dim2;
+	}
+	void setDim1(int dim) {
+		dim1 = dim;
+	}
+	void setDim2(int dim) {
+		dim2 = dim;
+	}
+	void setDim(int dim) {
+		dim1 = dim2 = dim;
+	}
+	int getDim1() {
+		return dim1;
+	}
+	int getDim2() {
+		return dim2;
+	}
+	virtual float area() = 0;
+};
+class GeoShape {
+	Shape ** shapes;
+	int count;
+	public:
+	GeoShape(){}
+	GeoShape(int count, Shape ** shapes) {
+		this->shapes = shapes;
+		this->count = count;
+	}
+	void setShapes(Shape ** shapes) {
+		this->shapes = shapes;
+	}
+	void setCount(int count) {
+		this->count = count;
+	}
+	float totalArea();
+
+};
+float GeoShape::totalArea() {
+	int i = 0;
+	float area = 0;
+	while (i < count) {
+		area += (shapes[i])->area();
+		i++;
+	}
+	return area;
+}
+class Circle: public Shape {
+	public:
+	Circle():Shape(){}
+	Circle(int radius) : Shape(radius) {}
+	float area() {
+		return 3.14f * dim1 * dim1;
+	}
+};
+class Rectangle : public Shape {
+	public:
+	Rectangle():Shape() {}
+	Rectangle(int length, int width):Shape(length, width) {}
+	float area() {
+		return dim1 * dim2;
+	}
+};
+class Triangle : public Shape {
+	public:
+	Triangle():Shape(){}
+	Triangle(int base, int height):Shape(base, height) {}
+	float area() {
+		return 0.5f * dim1 * dim2;
+	}
+};
+class Square : public Rectangle {
+	public:
+	Square():Rectangle(){}
+	Square(int side):Rectangle(side, side) {}
+};
+int main() {
+	clrscr();
+	Square squaresArr[7];
+	Shape * squares[7];
+	for (int i = 0; i < 7; i++) {
+		squaresArr[i].setDim(i + 1);
+		squares[i] = &squaresArr[i];
+	}
+	GeoShape geoShape1(7, squares);
+	Square s(6);
+	Triangle t(20, 10);
+	Rectangle r(20, 5);
+	Circle c(7);
+	Shape * shapes[4] = {&s, &t, &r, &c};
+	GeoShape geoShape2(4, shapes);
+	float area1 = geoShape1.totalArea();
+	float area2 = geoShape2.totalArea();
+	cout << area1 << endl;
+	cout << area2 << endl;
+	getch();
+	return 0;
+}
