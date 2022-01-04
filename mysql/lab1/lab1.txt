@@ -1,0 +1,81 @@
+MySQL Labs
+
+MySQL (Day1):
+
+
+1.		Create a database called grades
+	CREATE DATABASE grades;
+2.		
+Create the following tables in the grades database:
+
+	USE grades;
+CREATE TABLE students (
+Student_id INT PRIMARY KEY AUTO_INCREMENT,
+Student_name VARCHAR(100) NOT NULL,
+Email VARCHAR(50),
+Tel VARCHAR(20)
+);
+CREATE TABLE courses (
+Course_id INT PRIMARY KEY AUTO_INCREMENT,
+Course_name VARCHAR(100) NOT NULL,
+Credit_hour INT
+);
+CREATE TABLE students_courses (
+Course_id INT, 
+Student_id INT,
+Grade INT,
+Reg_date DATE, 
+CONSTRAINT `FK_COURSE_ID`  FOREIGN KEY(`course_id`) REFERENCES `courses`(`course_id`) ON DELETE CASCADE, 
+CONSTRAINT `FK_STUDENT_ID`  FOREIGN KEY(`student_id`) REFERENCES `students`(`student_id`) ON DELETE CASCADE, 
+PRIMARY KEY(course_id, student_id)
+);
+
+3	Modify the students table to allow for longer Student names (150 char)
+ Confirm your modification.
+	ALTER TABLE students MODIFY COLUMN Student_name VARCHAR(150);
+4	Add constraint to force unique email for each student
+	ALTER TABLE students ADD UNIQUE(email);
+5	Get Time, Date, Current user, MySQL Version using prompt?
+	SELECT VERSION(), USER(), CURRENT_DATE(), CURRENT_TIME();
+6	Add gender column for the students table. It holds two value (male or female)
+	ALTER TABLE students ADD gender ENUM('male', 'female');
+7	Add birth_date column for the students table.
+	ALTER TABLE students ADD birth_date DATE;
+8	Drop the student_name column and replace it with first name and last name.
+	ALTER TABLE students DROP student_name;
+ALTER TABLE students ADD first_name VARCHAR(50);
+ALTER TABLE students ADD last_name VARCHAR(50);
+9	Insert your friend’s data into the table students.
+	INSERT INTO students (first_name, last_name, gender, email) VALUES ('ahmed', 'magdy', 'male', 'test@app.com');
+10	Create a new table (male_students) based on students table and fill it with the data of male students
+	CREATE TABLE male_students AS SELECT * FROM students WHERE gender = 'male';
+
+ 
+Part II
+Create another database “OS42”
+
+Use OS42
+
+Run Lab Script then answer the following
+
+1	Display all students’ information.
+	SELECT * FROM students;
+2	Display male students only.
+	SELECT * FROM students WHERE gender='male';
+3	Display the number of female students.
+	SELECT COUNT(student_id) AS number_of_females FROM students WHERE gender='female';
+4	Display the students’ data for the students who are born before 1992-10-01.
+	SELECT * FROM students WHERE birth_date < '1992-10-01';
+5	Display male students who are born before 1991-10-01.
+	SELECT * FROM students WHERE birth_date < '1991-10-01';
+6	Display course_id and their grades sorted by grades.
+	SELECT course_id, grade FROM students_courses ORDER BY grade DESC;
+7	Display students’ names that begin with A.
+	SELECT CONCAT(first_name, ' ', last_name) AS student_name FROM students WHERE first_name LIKE 'A%';
+8	Display the gender, number of males and females.
+	SELECT COUNT(student_id) AS count, gender FROM students GROUP BY gender;
+9	Display the repeated first names and their counts if higher than 2.
+	SELECT COUNT(first_name) AS count, first_name FROM students GROUP BY first_name HAVING COUNT(first_name) > 2;
+10	Display the subject with highest grade
+	SELECT * FROM courses, (SELECT course_id, MAX(grade) FROM students_courses) q WHERE courses.course_id = q.course_id;
+
