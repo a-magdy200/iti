@@ -53,7 +53,7 @@ ostream & operator<<(ostream & out, Employee & emp) {
 int main() {
 	clrscr();
 	Employee emp;
-	ofstream file;
+	ifstream file;
 	cout << emp;
 	cin >> emp;
 	cout << emp;
