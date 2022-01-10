@@ -2,7 +2,7 @@ public class StarsTriangle {
   public static void main(String[] args) {
     int levels = 6;
     int currentLevel = 1;
-    int numberOfSpaces = 100;
+    int numberOfSpaces = (int) Math.round(levels * 1.9f);
     while (currentLevel <= levels) {
       for (int i = 0; i < currentLevel; i++) {
         System.out.print("*");
