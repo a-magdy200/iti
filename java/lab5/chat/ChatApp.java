@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.awt.*;
 
 public class ChatApp extends JFrame {
-  public ChatApplet() {
+  public ChatApp() {
     setLayout(new FlowLayout());
     JTextArea textarea = new JTextArea(20, 50);
     JScrollPane scrollPane = new JScrollPane(textarea);

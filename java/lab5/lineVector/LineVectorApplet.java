@@ -56,20 +56,20 @@ public class LineVectorApplet extends Applet {
         }
       }
 
-      public void mouseClicked(MouseEvent event) {
-        int x = event.getX();
-        int y = event.getY();
-        if (newLine == null) {
-          newLine = new Line(x, y);
-        } else {
-          newLine.setEnd(x, y);
-          lines.add(newLine);
-          newLine = null;
-          current++;
-        }
-        repaint();
+      // public void mouseClicked(MouseEvent event) {
+      // int x = event.getX();
+      // int y = event.getY();
+      // if (newLine == null) {
+      // newLine = new Line(x, y);
+      // } else {
+      // newLine.setEnd(x, y);
+      // lines.add(newLine);
+      // newLine = null;
+      // current++;
+      // }
+      // repaint();
 
-      }
+      // }
     });
     this.addMouseMotionListener(new MouseAdapter() {
       public void mouseMoved(MouseEvent event) {

@@ -28,7 +28,7 @@ public class LineArrayApplet extends Applet {
     undoButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
         if (current > 0) {
-          lines[current] = null;
+          lines[current - 1] = null;
           current--;
           repaint();
         }
@@ -59,21 +59,21 @@ public class LineArrayApplet extends Applet {
         }
       }
 
-      public void mouseClicked(MouseEvent event) {
-        if (current < 10) {
-          int x = event.getX();
-          int y = event.getY();
-          if (newLine == null) {
-            newLine = new Line(x, y);
-          } else {
-            newLine.setEnd(x, y);
-            lines[current] = newLine;
-            newLine = null;
-            current++;
-          }
-          repaint();
-        }
-      }
+      // public void mouseClicked(MouseEvent event) {
+      // if (current < 10) {
+      // int x = event.getX();
+      // int y = event.getY();
+      // if (newLine == null) {
+      // newLine = new Line(x, y);
+      // } else {
+      // newLine.setEnd(x, y);
+      // lines[current] = newLine;
+      // newLine = null;
+      // current++;
+      // }
+      // repaint();
+      // }
+      // }
     });
     this.addMouseMotionListener(new MouseAdapter() {
       public void mouseMoved(MouseEvent event) {

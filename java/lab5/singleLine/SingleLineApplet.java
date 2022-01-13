@@ -35,16 +35,16 @@ public class SingleLineApplet extends Applet {
         }
       }
 
-      public void mouseClicked(MouseEvent event) {
-        int x = event.getX();
-        int y = event.getY();
-        if (line.isFinished()) {
-          line.setStart(x, y);
-        } else {
-          line.setEnd(x, y);
-        }
-        repaint();
-      }
+      // public void mouseClicked(MouseEvent event) {
+      // int x = event.getX();
+      // int y = event.getY();
+      // if (line.isFinished()) {
+      // line.setStart(x, y);
+      // } else {
+      // line.setEnd(x, y);
+      // }
+      // repaint();
+      // }
     });
     this.addMouseMotionListener(new MouseAdapter() {
       public void mouseMoved(MouseEvent event) {
