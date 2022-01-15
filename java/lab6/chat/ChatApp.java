@@ -9,6 +9,8 @@ import java.io.PrintStream;
 import java.awt.*;
 import java.net.Socket;
 import java.net.InetAddress;
+import java.lang.Thread;
+import java.lang.Runnable;
 
 public class ChatApp extends JFrame implements Runnable {
   Socket socket;
@@ -34,33 +36,33 @@ public class ChatApp extends JFrame implements Runnable {
       // textarea.append(textField.getText() + "\n");
       textField.setText("");
     });
-    addWindowListener(new WindowAdapter() {
-      @Override
-      public void windowClosing(WindowEvent e) {
-        super.windowClosing(e);
-        try {
-          System.out.println("Closing...");
-          dataInputStream.close();
-          printStream.close();
-          socket.close();
-        } catch (IOException ex) {
-          ex.printStackTrace();
-        }
-      }
+    // addWindowListener(new WindowAdapter() {
+    // @Override
+    // public void windowClosing(WindowEvent e) {
+    // super.windowClosing(e);
+    // try {
+    // System.out.println("Closing...");
+    // dataInputStream.close();
+    // printStream.close();
+    // socket.close();
+    // } catch (IOException ex) {
+    // ex.printStackTrace();
+    // }
+    // }
 
-      @Override
-      public void windowClosed(WindowEvent e) {
-        super.windowClosed(e);
-        try {
-          System.out.println("Closed...");
-          dataInputStream.close();
-          printStream.close();
-          socket.close();
-        } catch (IOException ex) {
-          ex.printStackTrace();
-        }
-      }
-    });
+    // @Override
+    // public void windowClosed(WindowEvent e) {
+    // super.windowClosed(e);
+    // try {
+    // System.out.println("Closed...");
+    // dataInputStream.close();
+    // printStream.close();
+    // socket.close();
+    // } catch (IOException ex) {
+    // ex.printStackTrace();
+    // }
+    // }
+    // });
     add(scrollPane);
     add(textField);
     add(sendButton);
@@ -75,7 +77,7 @@ public class ChatApp extends JFrame implements Runnable {
   }
 
   public void run() {
-    while (!socket.isClosed()) {
+    while (socket.isConnected() && !socket.isClosed()) {
       try {
         String message = dataInputStream.readLine();
         textarea.append(message + "\n");
