@@ -12,7 +12,7 @@ public class ChatServer {
       serverSocket = new ServerSocket(5000);
       System.out.println("Server is running on port: 5000");
     } catch (IOException e) {
-
+      e.printStackTrace();
     }
     while (true) {
       try {
@@ -20,6 +20,7 @@ public class ChatServer {
         new ChatHandler(socket);
         System.out.println("New Client Connected!");
       } catch (IOException e) {
+        e.printStackTrace();
       }
     }
   }

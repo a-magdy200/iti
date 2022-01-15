@@ -9,7 +9,6 @@ import java.io.PrintStream;
 import java.awt.*;
 import java.net.Socket;
 import java.net.InetAddress;
-import javafx.application.Platform;
 
 public class ChatApp extends JFrame implements Runnable {
   Socket socket;
@@ -26,6 +25,7 @@ public class ChatApp extends JFrame implements Runnable {
       dataInputStream = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
       printStream = new PrintStream(socket.getOutputStream());
     } catch (IOException e) {
+      e.printStackTrace();
     }
     setLayout(new FlowLayout());
     sendButton.addActionListener((ActionEvent event) -> {
@@ -33,6 +33,33 @@ public class ChatApp extends JFrame implements Runnable {
       printStream.println(message);
       // textarea.append(textField.getText() + "\n");
       textField.setText("");
+    });
+    addWindowListener(new WindowAdapter() {
+      @Override
+      public void windowClosing(WindowEvent e) {
+        super.windowClosing(e);
+        try {
+          System.out.println("Closing...");
+          dataInputStream.close();
+          printStream.close();
+          socket.close();
+        } catch (IOException ex) {
+          ex.printStackTrace();
+        }
+      }
+
+      @Override
+      public void windowClosed(WindowEvent e) {
+        super.windowClosed(e);
+        try {
+          System.out.println("Closed...");
+          dataInputStream.close();
+          printStream.close();
+          socket.close();
+        } catch (IOException ex) {
+          ex.printStackTrace();
+        }
+      }
     });
     add(scrollPane);
     add(textField);
@@ -48,13 +75,28 @@ public class ChatApp extends JFrame implements Runnable {
   }
 
   public void run() {
-    while (true) {
+    while (!socket.isClosed()) {
       try {
         String message = dataInputStream.readLine();
         textarea.append(message + "\n");
       } catch (IOException e) {
-
+        try {
+          dataInputStream.close();
+          printStream.close();
+          socket.close();
+        } catch (IOException ex) {
+          ex.printStackTrace();
+        }
+        e.printStackTrace();
       }
+    }
+    try {
+      System.out.println("Closing.");
+      dataInputStream.close();
+      printStream.close();
+      socket.close();
+    } catch (IOException ex) {
+      ex.printStackTrace();
     }
   }
 }
