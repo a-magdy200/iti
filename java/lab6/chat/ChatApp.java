@@ -36,33 +36,33 @@ public class ChatApp extends JFrame implements Runnable {
       // textarea.append(textField.getText() + "\n");
       textField.setText("");
     });
-    // addWindowListener(new WindowAdapter() {
-    // @Override
-    // public void windowClosing(WindowEvent e) {
-    // super.windowClosing(e);
-    // try {
-    // System.out.println("Closing...");
-    // dataInputStream.close();
-    // printStream.close();
-    // socket.close();
-    // } catch (IOException ex) {
-    // ex.printStackTrace();
-    // }
-    // }
+    addWindowListener(new WindowListener() {
+      @Override
+      public void windowClosing(WindowEvent e) {
+        super.windowClosing(e);
+        try {
+          System.out.println("Closing...");
+          dataInputStream.close();
+          printStream.close();
+          socket.close();
+        } catch (IOException ex) {
+          ex.printStackTrace();
+        }
+      }
 
-    // @Override
-    // public void windowClosed(WindowEvent e) {
-    // super.windowClosed(e);
-    // try {
-    // System.out.println("Closed...");
-    // dataInputStream.close();
-    // printStream.close();
-    // socket.close();
-    // } catch (IOException ex) {
-    // ex.printStackTrace();
-    // }
-    // }
-    // });
+      @Override
+      public void windowClosed(WindowEvent e) {
+        super.windowClosed(e);
+        try {
+          System.out.println("Closed...");
+          dataInputStream.close();
+          printStream.close();
+          socket.close();
+        } catch (IOException ex) {
+          ex.printStackTrace();
+        }
+      }
+    });
     add(scrollPane);
     add(textField);
     add(sendButton);
