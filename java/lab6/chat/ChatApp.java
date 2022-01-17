@@ -37,9 +37,7 @@ public class ChatApp extends JFrame implements Runnable {
       textField.setText("");
     });
     addWindowListener(new WindowListener() {
-      @Override
       public void windowClosing(WindowEvent e) {
-        super.windowClosing(e);
         try {
           System.out.println("Closing...");
           dataInputStream.close();
@@ -50,9 +48,7 @@ public class ChatApp extends JFrame implements Runnable {
         }
       }
 
-      @Override
       public void windowClosed(WindowEvent e) {
-        super.windowClosed(e);
         try {
           System.out.println("Closed...");
           dataInputStream.close();
@@ -61,6 +57,21 @@ public class ChatApp extends JFrame implements Runnable {
         } catch (IOException ex) {
           ex.printStackTrace();
         }
+      }
+
+      public void windowOpened(WindowEvent e) {
+      }
+
+      public void windowIconified(WindowEvent e) {
+      }
+
+      public void windowDeiconified(WindowEvent e) {
+      }
+
+      public void windowActivated(WindowEvent e) {
+      }
+
+      public void windowDeactivated(WindowEvent e) {
       }
     });
     add(scrollPane);
