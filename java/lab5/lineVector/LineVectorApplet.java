@@ -41,7 +41,7 @@ public class LineVectorApplet extends Applet {
         dragStartX = event.getX();
         dragStartY = event.getY();
         dragX = dragStartX;
-        dragY = dragStartX;
+        dragY = dragStartY;
       }
 
       public void mouseReleased(MouseEvent event) {

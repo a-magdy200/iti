@@ -41,7 +41,7 @@ public class LineArrayApplet extends Applet {
           dragStartX = event.getX();
           dragStartY = event.getY();
           dragX = dragStartX;
-          dragY = dragStartX;
+          dragY = dragStartY;
         }
       }
 
@@ -97,14 +97,13 @@ public class LineArrayApplet extends Applet {
       }
     });
   }
-
   public void paint(Graphics g) {
     for (int i = 0; i < current; i++) {
       g.drawLine(lines[i].getX1(), lines[i].getY1(), lines[i].getX2(), lines[i].getY2());
     }
-    if (newLine != null) {
-      g.drawLine(newLine.getX1(), newLine.getY1(), newLine.getX2(), newLine.getY2());
-    }
+//    if (newLine != null) {
+//      g.drawLine(newLine.getX1(), newLine.getY1(), newLine.getX2(), newLine.getY2());
+//    }
     if (isDragging) {
       g.drawLine(dragStartX, dragStartY, dragX, dragY);
     }
