@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="calculator">
+<div class="container">
+
+    <div id="result">0</div>
+    <div id="input">0</div>
+    <div class="buttons-container">
+        <div class="row flex align-center">
+            <button data-value="clear" class="btn flex align-center justify-center col control">C</button>
+            <button data-value="invert" class="btn flex align-center justify-center col control">+/-</button>
+            <button data-symbol="%" data-value="modulus" class="btn flex align-center justify-center col control">%</button>
+            <button data-symbol="/" data-value="divide" class="btn flex align-center justify-center col control">/</button>
+        </div>
+        <div class="row flex align-center">
+            <button data-value="7" class="btn flex align-center justify-center col">7</button>
+            <button data-value="8" class="btn flex align-center justify-center col">8</button>
+            <button data-value="9" class="btn flex align-center justify-center col">9</button>
+            <button data-symbol="*" data-value="multiply" class="btn flex align-center justify-center col control">*</button>
+        </div>
+        <div class="row flex align-center">
+            <button data-value="4" class="btn flex align-center justify-center col">4</button>
+            <button data-value="5" class="btn flex align-center justify-center col">5</button>
+            <button data-value="6" class="btn flex align-center justify-center col">6</button>
+            <button data-symbol="-" data-value="minus" class="btn flex align-center justify-center col control">-</button>
+        </div>
+        <div class="row flex align-center">
+            <button data-value="1" class="btn flex align-center justify-center col">1</button>
+            <button data-value="2" class="btn flex align-center justify-center col">2</button>
+            <button data-value="3" class="btn flex align-center justify-center col">3</button>
+            <button data-symbol="+" data-value="plus" class="btn flex align-center justify-center col control">+</button>
+        </div>
+        <div class="row flex align-center">
+            <button data-value="0" class="btn flex align-center justify-center col2">0</button>
+            <button data-value="." class="btn flex align-center justify-center col">.</button>
+            <button data-symbol="=" data-value="calculate" class="btn flex align-center justify-center col control">=</button>
+        </div>
+    </div>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
