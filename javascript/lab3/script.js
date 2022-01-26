@@ -44,11 +44,11 @@ const onClickHandler = (e) => {
   const target = e.target;
   const value = target.getAttribute("data-value");
   const numericValue = parseInt(value, 10);
-  if (!isNaN(numericValue) || value === '.') {
+  if (!isNaN(numericValue) || value === '.') {// numeric input
     if (input.textContent === '0' || reset) {
       input.textContent = value;
     } else {
-      input.textContent += value === '.' ? value : numericValue;
+      input.textContent += value;
     }
     reset = false;
     if (nextOperation === '') {
@@ -57,7 +57,7 @@ const onClickHandler = (e) => {
       secondOperand += value;
     }
     input.setAttribute('data-value', input.textContent);
-  } else {
+  } else {// operation
     switch (value) {
       case 'clear':
         result.textContent = '0';
@@ -86,7 +86,7 @@ const onClickHandler = (e) => {
           firstOperand = parseFloat(input.textContent);
           input.textContent += ` ${symbol} `;
         } else {
-          input.textContent = input.textContent.replace(/[+-/*%]/, symbol);
+          input.textContent = input.textContent.replace(/[-+/*%]/, symbol);
         }
         reset = false;
         nextOperation = value;
