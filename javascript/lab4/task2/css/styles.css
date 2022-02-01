@@ -49,7 +49,7 @@ body {
 }
 button[disabled=disabled] {
     cursor: default;
-    background-color: #eee;
+    background-color: #eee !important;
     color: mediumseagreen;
 }
 .todo button.success {
@@ -58,8 +58,20 @@ button[disabled=disabled] {
 .success {
     background-color: mediumseagreen;
 }
+button.success:hover {
+    background-color: #36a166;
+}
+button.success:active {
+    background-color: #256d45;
+}
 .error {
     background-color: darkred;
+}
+.error:hover{
+    background-color: #740101;
+}
+.error:active {
+    background-color: #4e0000;
 }
 form {
     justify-content: center;
@@ -95,4 +107,11 @@ button {
     cursor: pointer;
     margin-left: 10px;
     text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+button[type="submit"]:hover {
+    background-color: #3e739e;
+}
+button[type="submit"]:active {
+    background-color: #30597b;
 }

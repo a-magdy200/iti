@@ -56,6 +56,13 @@ button {
     padding: 10px;
     width: 100%;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+button:hover {
+    background-color: #ce1238;
+}
+button:active {
+    background-color: #8b0d26;
 }
 #result {
     margin-bottom: 10px;

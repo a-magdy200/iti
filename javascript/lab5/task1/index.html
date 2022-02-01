@@ -14,12 +14,16 @@
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" required id="email" placeholder="Email" />
-            <div class="error"></div>
+            <div class="error" id="email-error"></div>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" required id="password" placeholder="********" />
-            <div class="error"></div>
+            <div class="password-validation">
+                <span class="tick"></span><span class="tick"></span><span class="tick"></span><span
+                    class="tick"></span>
+            </div>
+            <ul class="error" id="password-error"></ul>
         </div>
         <div class="form-group create-acc">
             <span>Not registered?</span>
