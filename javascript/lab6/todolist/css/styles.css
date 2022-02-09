@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: rgba(220, 20, 60, 0.23);
+    font-family: Tahoma, sans-serif;
+    color: #333;
+}
+.flex {
+    display: flex;
+    align-items: center;
+}
+.container {
+    width: 60%;
+    margin: 100px auto;
+}
+.app-container {
+    background-color: #e5e5e5;
+    padding: 30px;
+    width: 600px;
+    margin: auto;
+    border-radius: 5px;
+    border: 2px solid #777;
+}
+.todo-list {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 2px solid #777;
+    transition: all 0.3s ease-in-out;
+    height: 53px;
+}
+.todo {
+    padding: 10px;
+    border-bottom: 1px solid #777;
+    transition: all 0.3s ease-in-out;
+}
+.todo.checked {
+    background-color: rgba(60, 179, 113, 0.52);
+    border: 1px solid mediumseagreen;
+    border-radius: 5px;
+}
+.todo:last-of-type {
+    border-bottom: none;
+}
+.todo div{
+    flex: 1;
+}
+button[disabled=disabled] {
+    cursor: default;
+    background-color: #eee !important;
+    color: mediumseagreen;
+}
+.todo button.success {
+    transition: all 0.3s ease-in-out;
+}
+.success {
+    background-color: mediumseagreen;
+}
+button.success:hover {
+    background-color: #36a166;
+}
+button.success:active {
+    background-color: #256d45;
+}
+.error {
+    background-color: darkred;
+}
+.error:hover{
+    background-color: #740101;
+}
+.error:active {
+    background-color: #4e0000;
+}
+form {
+    justify-content: center;
+    padding: 30px;
+    margin: 10px auto;
+}
+.form-group {
+    margin-bottom: 15px;
+    flex: 1;
+    width: 100%;
+}
+label {
+    display: inline-block;
+    margin-right: 10px;
+}
+input {
+    padding: 10px;
+    color: #777;
+    display: block;
+    width: 300px;
+    background-color: #eee;
+    border: 2px solid #777;
+    border-radius: 3px;
+}
+button {
+    display: block;
+    background-color: steelblue;
+    color: white;
+    outline: none;
+    border: 1px solid steelblue;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-left: 10px;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+button[type="submit"]:hover {
+    background-color: #3e739e;
+}
+button[type="submit"]:active {
+    background-color: #30597b;
+}
