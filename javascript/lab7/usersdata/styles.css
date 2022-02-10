@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: rgba(220, 20, 60, 0.23);
+    font-family: Tahoma, sans-serif;
+    color: #333;
+}
+.container {
+    width: 60%;
+    margin: 100px auto;
+}
+#users-list, .user {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#users-list {
+    justify-content: center;
+}
+.user {
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 2px solid #8b0d26;
+    border-radius: 5px;
+    height: 250px;
+    width: 300px;
+    background-color: #eee;
+}

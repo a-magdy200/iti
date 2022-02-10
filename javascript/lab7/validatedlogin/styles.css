@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: rgba(220, 20, 60, 0.23);
+    font-family: Tahoma, sans-serif;
+    color: #333;
+}
+.container {
+    width: 60%;
+    margin: 100px auto;
+}
+.success {
+    color: mediumseagreen;
+}
+.error {
+    color: darkred;
+}
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    border: 1px solid #777;
+    max-width: 300px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.form-group {
+    margin-bottom: 15px;
+    flex: 1;
+    width: 100%;
+}
+label {
+    display: inline-block;
+    width: 70px;
+    margin-bottom: 5px;
+}
+input {
+    padding: 10px;
+    color: #777;
+    display: block;
+    width: 100%;
+    background-color: #eee;
+    border: 1px solid #aaa;
+}
+button {
+    display: block;
+    background-color: crimson;
+    color: white;
+    outline: none;
+    border: 1px solid crimson;
+    border-radius: 3px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #ce1238;
+}
+button:active {
+    background-color: #8b0d26;
+}
+
+#result {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.create-acc {
+    font-size: 12px;
+    color: #333;
+}
+.password-validation .tick {
+    display: inline-block;
+    height: 10px;
+    width: 30px;
+    margin: 0 5px;
+    background-color: #e5e5e5;
+    border: 1px solid #777;
+}
+.password-validation .tick:first-of-type {
+    margin-left: 0;
+}
+.password-validation .tick.valid {
+    background-color: mediumseagreen;
+}
+.error {
+    font-size: 12px;
+    font-weight: bold;
+}
