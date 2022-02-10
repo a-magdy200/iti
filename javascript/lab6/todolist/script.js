@@ -7,25 +7,22 @@ const createTodo = (todo) => {
   // This function is just to prepare html to be injected into the dom
   // @params: todo: object {id: number, title: string, isDone: boolean}
   // returns: string
-  return `<div class="todo flex ${todo.isDone && "checked"}" data-id="${todo.id}">
-                <div>${todo.title}</div>
-                <button class="success" disabled="${todo.isDone && "disabled"}"><i class="fa fa-check"></i></button>
-                <button class="error"><i class="fa fa-remove"></i></button>
-            </div>`;
+  return `<div class="todo flex ${todo.isDone ? "checked" : ""}" data-id="${todo.id}">
+              <div>${todo.title}</div>
+              <button class="success" disabled="${todo.isDone && "disabled"}"><i class="fa fa-check"></i></button>
+              <button class="error"><i class="fa fa-remove"></i></button>
+          </div>`;
 };
-(() => {
-  //this anonymous function runs at load of the page
-  //loads the todos array ( if it has any items ) in the dom
-  if (todos.length) {
-    todoListContainer.innerHTML = '';
-    todoListContainer.style.height = `${34 + (todos.length * 57)}px`;
-    setTimeout(() => {
-      todos.forEach(todo => {
-        todoListContainer.innerHTML += createTodo(todo);
-      });
-    }, 300);
-  }
-})()
+//loads the todos array ( if it has any items ) in the dom
+if (todos.length) {
+  todoListContainer.innerHTML = '';
+  todoListContainer.style.height = `${34 + (todos.length * 57)}px`;
+  setTimeout(() => {
+    todos.forEach(todo => {
+      todoListContainer.innerHTML += createTodo(todo);
+    });
+  }, 300);
+}
 const addTask = (e) => {
   e.preventDefault();
   const newTask = taskInput.value;
