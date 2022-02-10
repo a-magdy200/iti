@@ -1,3 +1,11 @@
+const alarmForm = document.forms[0];
+const hoursContainer = document.getElementById("hours");
+const minutesContainer = document.getElementById("minutes");
+const secondsContainer = document.getElementById("seconds");
+const audio = document.getElementById("audio");
+let hours, minutes, seconds, timer;
+const tickingTrack = "tick.wav";
+const alarmTrack = "alarm.wav";
 const onInputChange = e => {
   const target = e.target;
   const targetVal = target.value;
@@ -33,4 +41,47 @@ const onInputChange = e => {
     }
   }
 }
+const onFormSubmit = e => {
+  e.preventDefault();
+  hours = parseInt(alarmForm.hours.value || "0", 10);
+  minutes = parseInt(alarmForm.minutes.value || "0", 10);
+  seconds = parseInt(alarmForm.seconds.value || "0", 10);
+  timer = setInterval(() => {
+    if (seconds === 0) {
+      if (minutes === 0) {
+        if (hours === 0) {
+          onFormReset();
+          // run alarm
+          // todo fix alarm
+          audio.setAttribute("src", alarmTrack);
+          audio.play();
+          alert("Alarm!!");
+          return;
+        } else {
+          hours--;
+          minutes = 59;
+        }
+      } else {
+        minutes--;
+        seconds = 59;
+      }
+    } else {
+      seconds--;
+    }
+    // todo fix sound
+    audio.play();
+    hoursContainer.innerHTML = hours < 10 ? "0" + hours : hours;
+    minutesContainer.innerHTML = minutes < 10 ? "0" + minutes : minutes;
+    secondsContainer.innerHTML = seconds < 10 ? "0" + seconds : seconds;
+  }, 1000);
+}
+const onFormReset = () => {
+  hoursContainer.innerHTML = "00";
+  minutesContainer.innerHTML = "00";
+  secondsContainer.innerHTML = "00";
+  hours = minutes = seconds = 0;
+  clearInterval(timer);
+};
 document.addEventListener("keydown", onInputChange);
+alarmForm.addEventListener("submit", onFormSubmit);
+alarmForm.addEventListener("reset", onFormReset);

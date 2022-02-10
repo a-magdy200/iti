@@ -11,20 +11,29 @@
 <body>
 <div class="container border">
     <div class="alarm-container border">
+        <div class="alarm flex justify-center">
+            <div id="hours">00</div>
+            <div>:</div>
+            <div id="minutes">00</div>
+            <div>:</div>
+            <div id="seconds">00</div>
+            <audio style="display: none" src="tick.wav"  id="audio">
+            </audio>
+        </div>
         <h1>Set a new alarm</h1>
-        <form action="#">
+        <form action="#" name="alarmForm">
             <div class="flex">
                 <div class="box border flex flex-column">
-                    <label for="hours">Hours</label>
-                    <input data-max="23" placeholder="00" class="border" type="text" id="hours">
+                    <label for="hours-input">Hours</label>
+                    <input name="hours" data-max="23" placeholder="00" class="border" type="text" id="hours-input">
                 </div>
                 <div class="box border flex flex-column">
-                    <label for="minutes">Minutes</label>
-                    <input data-max="59" placeholder="00" class="border" type="text" id="minutes">
+                    <label for="minutes-input">Minutes</label>
+                    <input name="minutes" data-max="59" placeholder="00" class="border" type="text" id="minutes-input">
                 </div>
                 <div class="box border flex flex-column">
-                    <label for="seconds">Seconds</label>
-                    <input data-max="59" placeholder="00" class="border" type="text" id="seconds">
+                    <label for="seconds-input">Seconds</label>
+                    <input name="seconds" data-max="59" placeholder="00" class="border" type="text" id="seconds-input">
                 </div>
             </div>
             <div class="flex justify-center">
