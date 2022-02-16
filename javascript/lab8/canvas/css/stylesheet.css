@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: radial-gradient(#777, #333);
+    font-family: cursive, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+.shapes, main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 15px;
+    margin-bottom: 15px;
+}
+.shape-props, .edit-shape {
+    flex: 1;
+    border: 3px solid #333;
+    padding: 20px;
+    background-color: #777;
+    border-radius: 5px;
+    margin: 20px;
+    color: aliceblue;
+    text-transform: capitalize;
+}
+button {
+    margin: 0 5px;
+    border: 1px solid #4682b3;
+    background-color:#f5f5f5;
+    padding: 8px 15px;
+    border-radius: 3px;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+    font-size: 18px;
+}
+button:hover, button:focus {
+    background-color: #4177a4;
+    color: white;
+    outline: none;
+}
+button:active {
+    background-color: #366489;
+    color: white;
+}
+.canvas-container {
+    border: 3px solid #4682b3;
+    background-color: #fff;
+}
+canvas {
+    flex: 0;
+}
+.form-group, .shape-prop {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    padding: 0 20px
+}
+.edit-shape button {
+    width: 100%;
+}
+input {
+    width: 100px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    border: 2px solid #333;
+}

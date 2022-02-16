@@ -54,33 +54,33 @@ body {
     transform: translate3d(0px, 0px, 0px);
     z-index: 10;
 }
-.items-container .item-7{
+.items-container .item-1 {
     z-index: 9;
-    transform: translate3d(-200px, 0px, -250px);
-}
-.items-container .item-6{
-    z-index: 7;
-    transform: translate3d(-400px, 0px, -500px);
-}
-.items-container .item-5{
-    z-index: 6;
-    transform: translate3d(-200px, 0px, -750px);
-}
-.items-container .item-4 {
-    z-index: 5;
-    transform:  translate3d(0px, 0px, -1000px);
-}
-.items-container .item-3 {
-    z-index: 6;
-    transform: translate3d(200px, 0px, -750px);
+    transform: translate3d(200px, 0px, -200px);
 }
 .items-container .item-2{
     z-index: 7;
     transform: translate3d(400px, 0px, -500px);
 }
-.items-container .item-1 {
+.items-container .item-3 {
+    z-index: 6;
+    transform: translate3d(200px, 0px, -750px);
+}
+.items-container .item-4 {
+    z-index: 5;
+    transform:  translate3d(0px, 0px, -1000px);
+}
+.items-container .item-5{
+    z-index: 6;
+    transform: translate3d(-200px, 0px, -750px);
+}
+.items-container .item-6{
+    z-index: 7;
+    transform: translate3d(-400px, 0px, -500px);
+}
+.items-container .item-7{
     z-index: 9;
-    transform: translate3d(200px, 0px, -200px);
+    transform: translate3d(-200px, 0px, -250px);
 }
 .controls {
     position: absolute;
