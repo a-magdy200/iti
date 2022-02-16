@@ -79,20 +79,7 @@ const onInputChange = e => {
         break;
       case 'ArrowDown':
         target.value = (targetVal === '' ? 0 : (targetVal === '0' ? '0' : parseInt(targetVal, 10) - 1));
-        break;
-      // case 'ArrowLeft':
-      // case 'Backspace':
-      // case 'Delete':
-      // case 'ArrowRight':
-      //   break;
-      // default:
-      //   const value = parseInt(key, 10);
-      //   e.preventDefault();
-      //   if (!isNaN(value)) {
-      //     const currentValue = targetVal === '' ? '0' : parseInt(targetVal, 10);
-      //     target.value = currentValue.toString() + value;
-      //   }
-      //   break;
+        break;ل
     }
   }
 }
