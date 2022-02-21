@@ -60,15 +60,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ?>
             <div class="form-group">
                 <label for="name">Name</label>
-                <input value="<?php echo $vars['name']; ?>" type="text" id="name" name="name" placeholder="Name">
+                <input value="<?php echo $success ? '' : $vars['name']; ?>" type="text" id="name" name="name" placeholder="Name">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input value="<?php echo $vars['email']; ?>" type="email" id="email" name="email" placeholder="Email@Domain.com">
+                <input value="<?php echo $success ? '' : $vars['email']; ?>" type="email" id="email" name="email" placeholder="Email@Domain.com">
             </div>
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea name="message" id="message" cols="30" rows="3" placeholder="Message"><?php echo $vars['message']; ?></textarea>
+                <textarea name="message" id="message" cols="30" rows="3" placeholder="Message"><?php echo $success ? '' : $vars['message']; ?></textarea>
             </div>
             <div>
                 <button type="reset">Clear</button>
