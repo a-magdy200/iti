@@ -1,4 +1,5 @@
 <?php
+require_once 'config.php';
 $vars = [
     'name' => '',
     'email' => '',
@@ -12,14 +13,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $vars['message'] =  filter_var($_POST['message'], FILTER_SANITIZE_STRING);
 
     if (isset($vars['name']) && strlen($vars['name']) != 0) {
-        if (strlen($vars['name']) > 99) {
+        if (strlen($vars['name']) > MAX_NAME_LENGTH) {
             $errors[] = "Name is too long, must be less than 100 characters";
         }
     } else {
         $errors[] = 'Name is required';
     }
     if (isset($vars['message']) && strlen($vars['message']) != 0) {
-        if (strlen($vars['message']) > 254) {
+        if (strlen($vars['message']) > MAX_MESSAGE_LENGTH) {
             $errors[] = "Message is too long, must be less than 255 characters";
         }
     } else {
