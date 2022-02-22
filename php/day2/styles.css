@@ -5,11 +5,13 @@ body {
     background-color: rgba(20, 180, 220, 0.11);
     font-family: Tahoma, sans-serif;
     color: #333;
+    margin: 0;
 }
 .container {
     width: 60%;
     margin: 50px auto;
 }
+
 .success {
     color: mediumseagreen;
 }
@@ -64,6 +66,17 @@ button:hover {
 button:active {
     background-color: #8b0d26;
 }
+button[type=reset] {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #333;
+}
+button[type=reset]:hover {
+    background-color: #e5e5e5;
+}
+button[type=reset]:active {
+    background-color: #d5d5d5;
+}
 #result {
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -72,4 +85,26 @@ button:active {
 .error {
     font-size: 12px;
     font-weight: bold;
+}
+
+h2 {
+    margin-bottom: 30px;
+    padding-top: 20px;
+    text-align: center;
+}
+.empty {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.message {
+    margin: 0 auto 20px;
+    width: 400px;
+    background-color: #f5f5f5;
+    border: 1px solid #777;
+    padding: 15px 25px;
+    border-radius: 3px;
+}
+p span {
+  display: inline-block;
+    min-width: 60px;
 }
