@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>number of times</h1>
+<p id="times">0</p>
+<script>
+    const times = document.getElementById("times");
+    const savedTimes = localStorage.getItem("times") ?? "0";
+    times.textContent = (parseInt(savedTimes, 10) + 1).toString();
+    localStorage.setItem("times", times.textContent);
+</script>
+</body>
+</html>
