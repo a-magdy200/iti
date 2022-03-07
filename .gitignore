@@ -3,3 +3,5 @@ eng/
 .vscode/
 out/
 *.iml
+vendor/
+node_modules/
