@@ -1,0 +1,22 @@
+{
+    "name": "ahmed/day4",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Ahmed Magdy",
+            "email": "ahmedmagdy.200m@gmail.com"
+        }
+    ],
+    "autoload": {
+        "classmap": ["models"],
+        "files": [
+            "config.php"
+        ]
+    },
+    "require": {
+        "illuminate/database": "^9.3",
+        "illuminate/events": "^9.3",
+        "doctrine/dbal": "^2.12",
+        "illuminate/pagination": "^9.3"
+    }
+}
