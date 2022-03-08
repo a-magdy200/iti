@@ -1,0 +1,15 @@
+root {
+    padding: 10px;
+    font-size: 14px;
+}
+employee {
+    border: 1px solid grey;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: white;
+    display: block;
+    margin-bottom: 10px;
+}
+employee > * {
+    display: block
+}
