@@ -1,0 +1,130 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/css" href="stylesheet.css"?>
+<?xml-stylesheet type="text/xsl" href="lab.xsl"?>
+<employees>
+    <employee>
+        <name>emploee 1</name>
+        <phones>
+            <phone type="home">123</phone>
+            <phone type="work">456</phone>
+            <phone type="mobile">789</phone>
+        </phones>
+        <email>employee1@domani.com</email>
+        <addresses>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+        </addresses>
+    </employee>
+    <employee>
+        <name>emploee 2</name>
+        <phones>
+            <phone type="home">123</phone>
+            <phone type="work">456</phone>
+            <phone type="mobile">789</phone>
+        </phones>
+        <email>employee1@domani.com</email>
+        <addresses>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+        </addresses>
+    </employee>
+    <employee>
+        <name>emploee 3</name>
+        <phones>
+            <phone type="home">123</phone>
+            <phone type="work">456</phone>
+            <phone type="mobile">789</phone>
+        </phones>
+        <email>employee1@domani.com</email>
+        <addresses>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+        </addresses>
+    </employee>
+    <employee>
+        <name>emploee 4</name>
+        <phones>
+            <phone type="home">123</phone>
+            <phone type="work">456</phone>
+            <phone type="mobile">789</phone>
+        </phones>
+        <email>employee1@domani.com</email>
+        <addresses>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+        </addresses>
+    </employee>
+    <employee>
+        <name>emploee 5</name>
+        <phones>
+            <phone type="home">123</phone>
+            <phone type="work">456</phone>
+            <phone type="mobile">789</phone>
+        </phones>
+        <email>employee1@domani.com</email>
+        <addresses>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+        </addresses>
+    </employee>
+</employees>
