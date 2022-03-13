@@ -25,14 +25,20 @@
                             <tr>
                                 <td><xsl:value-of select="name"/></td>
                                 <td>
-                                    <xsl:for-each select="phones">
-                                        <div><xsl:value-of select="phone"/></div>
+                                    <xsl:for-each select="phones/phone">
+                                        <div><xsl:value-of select="text()"/></div>
                                     </xsl:for-each>
                                 </td>
                                 <td><xsl:value-of select="email"/></td>
                                 <td>
-                                    <xsl:for-each select="addresses">
-                                        <div><xsl:value-of select="address"/></div>
+                                    <xsl:for-each select="addresses/address">
+                                        <div>
+                                            <span><xsl:value-of select="street"/></span>,
+                                            <span><xsl:value-of select="building"/></span>,
+                                            <span><xsl:value-of select="city"/></span>,
+                                            <span><xsl:value-of select="country"/></span>,
+                                            <span><xsl:value-of select="region"/></span>
+                                        </div>
                                     </xsl:for-each>
                                 </td>
                             </tr>
