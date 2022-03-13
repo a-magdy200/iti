@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE employees [
+    <!ELEMENT employees (employee+) >
+    <!ELEMENT employee (name, phones, email, addresses)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT phones (phone+)>
+    <!ELEMENT phone (#PCDATA)>
+    <!ATTLIST phone type CDATA "check">
+    <!ELEMENT email (#PCDATA)>
+    <!ELEMENT addresses (address+)>
+    <!ELEMENT address (street, building, city, country, region)>
+    <!ELEMENT street (#PCDATA)>
+    <!ELEMENT building (#PCDATA)>
+    <!ELEMENT city (#PCDATA)>
+    <!ELEMENT country (#PCDATA)>
+    <!ELEMENT region (#PCDATA)>
+]>
+<?xml-stylesheet type="text/css" href="stylesheet.css"?>
+<employees>
+    <employee>
+        <name>emploee 1</name>
+        <phones>
+            <phone type="home">123</phone>
+            <phone type="work">456</phone>
+            <phone type="mobile">789</phone>
+        </phones>
+        <email>employee1@domani.com</email>
+        <addresses>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+        </addresses>
+    </employee>
+    <employee>
+        <name>emploee 2</name>
+        <phones>
+            <phone type="home">123</phone>
+            <phone type="work">456</phone>
+            <phone type="mobile">789</phone>
+        </phones>
+        <email>employee1@domani.com</email>
+        <addresses>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+        </addresses>
+    </employee>
+    <employee>
+        <name>emploee 3</name>
+        <phones>
+            <phone type="home">123</phone>
+            <phone type="work">456</phone>
+            <phone type="mobile">789</phone>
+        </phones>
+        <email>employee1@domani.com</email>
+        <addresses>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+        </addresses>
+    </employee>
+    <employee>
+        <name>emploee 4</name>
+        <phones>
+            <phone type="home">123</phone>
+            <phone type="work">456</phone>
+            <phone type="mobile">789</phone>
+        </phones>
+        <email>employee1@domani.com</email>
+        <addresses>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+        </addresses>
+    </employee>
+    <employee>
+        <name>emploee 5</name>
+        <phones>
+            <phone type="home">123</phone>
+            <phone type="work">456</phone>
+            <phone type="mobile">789</phone>
+        </phones>
+        <email>employee1@domani.com</email>
+        <addresses>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+            <address>
+                <street>st</street>
+                <building>1</building>
+                <city>alex</city>
+                <country>eg</country>
+                <region>alex</region>
+            </address>
+        </addresses>
+    </employee>
+</employees>
