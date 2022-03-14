@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border: solid;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+
+        <th>id</th>
+        <th>name</th>
+        <th>amount</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+<script type = "text/javascript">
+  const db = openDatabase('onlinestore', '1.0', 'WebSQL DB', 2 * 1024 * 1024);
+
+  db.transaction(function (tx) {
+    tx.executeSql("DROP TABLE IF EXISTS items");
+    tx.executeSql('CREATE TABLE IF NOT EXISTS items (id , name, amount)');
+    tx.executeSql('INSERT INTO items (id , name, amount) VALUES (1, "product 1", 5)');
+    tx.executeSql('INSERT INTO items (id , name, amount) VALUES (1, "item 2", 33)');
+  })
+
+  db.transaction(function (tx) {
+    tx.executeSql('SELECT * FROM items', [], function (tx, results) {
+
+      for (let i = 0; i < results.rows.length; i++) {
+        const item = results.rows.item(i);
+        document.querySelector("tbody").innerHTML += `
+        <tr>
+        <td>${item.id}</td>
+        <td>${item.name}</td>
+        <td>${item.amount}</td>
+        </tr>
+        `
+      }
+    }, null);
+  });
+</script>
+</body>
+</html>
