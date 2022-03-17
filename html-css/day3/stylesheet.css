@@ -1,0 +1,79 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #eee;
+    font-family: Monospaced, Tahoma, sans-serif;
+    color: #555
+}
+.bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.flex {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+.container {
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    max-width: 1000px;
+}
+.logo {
+    background-image: url("https://placeimg.com/100/100/nature");
+    height: 70px;
+    width: 70px;
+}
+.top, hr, .featured {
+    margin-bottom: 20px;
+}
+.banner-bg {
+    background-image: url("https://placeimg.com/1000/400/nature");
+    height: 300px;
+    margin-bottom: 25px;
+}
+hr {
+    height: 5px;
+    background-color: #999;
+}
+.featured {
+    margin-left: -20px;
+    margin-right: -20px;
+}
+.featured h2 {
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+.item {
+    flex: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 32%;
+}
+.featured-item-bg {
+    background-image: url("https://placeimg.com/400/400/nature");
+    overflow: hidden;
+    height: 150px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.featured h3 {
+}
+.featured a {
+    font-size: 12px;
+    text-decoration: none;
+    color: #888;
+    text-transform: lowercase;
+    font-style: italic;
+}
+.featured a:hover {
+    color: #444;
+}
+.featured a:active, .featured a:focus {
+    color: #111;
+}
