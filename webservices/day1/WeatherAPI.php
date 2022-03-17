@@ -18,9 +18,6 @@
 
     public static function get_weather($lat, $lon)
     {
-
-      $lat = $_GET['lat'];
-      $lon = $_GET['lon'];
       try {
         $curl = curl_init("https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=" . API_KEY);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);

@@ -51,7 +51,7 @@
           }
           weatherDataContainer.innerHTML += `<p>Wind Speed: ${result.wind.speed} - Direction: ${result.wind.deg} - Gust: ${result.wind.gust}</p>`;
           weatherDataContainer.innerHTML += `<p>Temperature: ${(result.main.temp - 273.15).toFixed(2)}</p>`;
-          weatherDataContainer.innerHTML += `<p>Feels Like: ${result.main.feels_like}</p>`;
+          weatherDataContainer.innerHTML += `<p>Feels Like: ${(result.main.feels_like - 273.15).toFixed(2)}</p>`;
           weatherDataContainer.innerHTML += `<p>Pressure: ${result.main.pressure}</p>`;
           weatherDataContainer.innerHTML += `<p>Humidity: ${result.main.humidity}%</p>`;
           weatherDataContainer.innerHTML += `<p>Minimum Temperature: ${(result.main.temp_min - 273.15).toFixed(2)}</p>`;
