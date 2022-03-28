@@ -1,0 +1,17 @@
+{
+    "name": "ahmed/test",
+    "autoload": {
+        "psr-4": {
+            "Ahmed\\Test\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ahmed Magdy",
+            "email": "ahmedmagdy.200m@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
