@@ -23,15 +23,15 @@
       self::assertEquals($value, factorial($random), "Factorial $random should return $value");
     }
     public function testFactorialMinusThree(){
-      self::assertEquals(null, factorial(-3), "Factorial -3 should return null");
+      self::assertNull(factorial(-3), "Factorial -3 should return null");
     }
     public function testFactorialOnePointFive(){
-      self::assertEquals(null, factorial(1.5), "Factorial 1.5 should return null");
+      self::assertNull(factorial(1.5), "Factorial 1.5 should return null");
     }
     public function testFactorialFalse(){
-      self::assertEquals(null, factorial(false), "Factorial false should return null");
+      self::assertNull(factorial(false), "Factorial false should return null");
     }
     public function testFactorialString(){
-      self::assertEquals(null, factorial("abc"), "Factorial <string> should return null");
+      self::assertNull(factorial("abc"), "Factorial <string> should return null");
     }
   }
