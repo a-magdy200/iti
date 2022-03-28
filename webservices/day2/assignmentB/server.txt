@@ -1,0 +1,25 @@
+$_SERVER
+$method = $_SERVER['REQUEST_METHOD']
+$_SERVER["REQUEST_URI"]
+// /GlassShopAPI.php/items/100
+$uriParts = explode('/', $_SERVER["REQUEST_URI"])
+$resourceIndex = index before last
+/iti/php/day4/index.php
+/test
+?id=1
+
+function getAll() {
+
+}
+function addNew() {
+
+}
+function getOne() {
+
+}
+function updateOne() {
+
+}
+function deleteOne() {
+
+}

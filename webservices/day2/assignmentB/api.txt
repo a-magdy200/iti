@@ -1,0 +1,78 @@
+CRUD operation API
+
+Application programmable interface
+
+google.com/ | Method
+
+# Server #
+query string
+Method
+
+[
+    "Key" : "Value"
+]
+
+Router
+{
+    query: /
+    Method: GET
+}
+{
+    query: /
+    Method: POST
+}
+{
+    query: /
+    Method: PUT
+}
+{
+    query: /
+    Method: DELETE
+}
+
+CRUD
+
+Create Product "/"
+Read One Product GET "/id"
+Read All Products "/"
+Update Product PUT "/id"
+Delete Product DELETE "/id"
+
+google.com/
+
+[
+    "/+GET": "get all products",
+    "/+POST": "add new product",
+]
+
+[
+    "/id+GET": "get product of id = ?",
+    "/id+PUT": "update data of product with id = ?",
+    "/id+DELETE": "delete product of id = ?"
+]
+get, post, put, delete
+/ , /id
+
+
+HTTP(S) -> REQUEST + RESPONSE
+products
+products -> get = [product]
+products -> post = +product
+products -> put/patch = [] product(change)
+products -> delete = [] - product(s)
+function($x) {
+    // processes
+    return $y
+}
+
+
+
+
+**Products**
+
+
+Create Product "/"
+Read One Product GET "/id"
+Read All Products "/"
+Update Product PUT "/id"
+Delete Product DELETE "/id"

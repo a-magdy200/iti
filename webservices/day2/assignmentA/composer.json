@@ -1,0 +1,9 @@
+{
+  "require": {
+    "guzzlehttp/guzzle": "^7",
+    "ext-json": "*"
+  },
+  "autoload": {
+    "classmap": ["Model/"]
+  }
+}
