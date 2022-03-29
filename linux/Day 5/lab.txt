@@ -1,0 +1,11 @@
+1-3 empty VMs
+	3VMs networking is bridged
+	1-1xansible controller
+		Playbook to configure the other 2 VMS,each one
+		1-Rename each server
+		2-apache2
+		3-configure 2 virtual hosts on each web server
+			wp1.ahmed.com
+			wp2.ahmed.com
+		4-Upload wordpress to each server
+	2-2xEmpty VMS

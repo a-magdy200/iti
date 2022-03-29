@@ -1,0 +1,114 @@
+Networking in ubuntu:
+    1-OSI:
+	L1: Physical connectivity: Ethernet, Fiber, Wireless
+	L2: MAC-Layer
+	L3: Network layer : How to move packets in the network (Decision based on destination address)
+
+	Any device has two routing types:
+	1-Directly connected route.	
+		You are in the same subnet
+		Once configure device network interface with an IP Address, implicitly you configure directly connected route
+	2-Remote route.
+		Both are not in the same subnet. Used by default gateway, or static/dynamic routes.
+    2-Networking in ubuntu:
+	1-legacy networking: /etc/networking/interfaces
+	2-netplan: yaml file in /etc/netplan (Cloud instances)	
+	3-Network Manager: needs to be installed (Profile called connection)
+		Network Interface Card -> Multiple connections
+		Each connection (Profile) contains a certain settings( IP, Subnet mask, Gateway, DNS,..)
+		You can activate only one connection at a time
+	4-To get the current IP 
+		ip address
+	5-To install network manager:
+		1-Install network manager package
+		sudo apt install network-manager
+				$sudo apt install network-manager
+		2-Configure grub
+				$sudo nano /etc/default/grub
+		3-Edit line GRUB_CMDLINE_LINUX="", and inside "" add 
+				net.ifnames=0 biosdevname=0
+		4-Compile GRUB
+				$sudo grub-mkconfig -o /boot/grub/grub.cfg
+		5-Create managed devices file
+				$touch /etc/NetworkManager/conf.d/10-globally-managed-devices.conf
+		6-Reboot the machine
+				$sudo reboot
+	6-Configure networking using network-manager (nmcli)
+		1-To list available connections
+			sudo nmcli connection show
+			or
+			sudo nmcli c s
+		2-To create a new connection with certain settings:
+			sudo nmcli conn add 
+				con-name <connection name>
+				type ethernet
+				ifname <Interface name >
+				autoconnect <yes/no>
+				ip4 <ip/mask>
+				gw4 <gateway ip>
+			sudo nmcli con add con-name iti type ethernet ifname eth0 autoconnect yes
+		3-To activate a connection
+			sudo nmcli con up <connection name>
+			sudo nmcli con up iti
+		4-To modify a connection
+			sudo nmcli con mod <connection name> <property>
+			sudo nmcli con mod iti connection.interface-name eth0
+			sudo nmcli con mod itistatic ipv4.dns 4.2.2.2
+			sudo nmcli con up itistatic
+			NOTE:
+				Always, after modify a connection you have to activate it again
+		5-To display connection details
+			sudo nmcli c s <connection name>
+			sudo nmcli c s iti
+	Network scenario:
+		There is a virtual machine, and we want this Virtual machine to acquire an IP address from the same subnet used in physical machine
+		We want to 
+		1-configure l1
+		2-configure l2
+			Virtual hypervisor from virtualbox (Bridge)
+			1-In home:
+					Bridge
+			2-ITI
+					NAT
+		3-configure l3
+--------------------------------------------------------
+Firewall:
+	1-Install firewalld
+		sudo apt install firewalld
+	2-Enable and start firewalld service
+		sudo systemctl enable --now firewalld
+	3-Firewalld has group of rules called zones.
+		zone: group of rules applied to certain members
+	4-Zone membership:
+		1-Look for IP membership.
+		2-If there is no IP membership,look for interface membership.
+
+	5-To display firewall rules
+		sudo firewall-cmd --list-all
+	6-To add a service to the firewall
+		sudo firewall-cmd --add-service=http
+		If you reboot the machine, the service will no longer be activated
+		to make the service permanent
+		sudo firewall-cmd --permanent --add-service=http
+		sudo firewall-cmd --reload
+	7-To change interface zone, use nmcli
+		sudo nmcli con mod connection.zone <zone>
+	Solution:
+	in VM1:
+		1-Configure networking for both network interfaces
+		sudo nmcli con add con-name ExternalIF type ethernet ifname eth0 ip4 192.168.1.200/24 gw4 192.168.1.1
+		sudo nmcli con mod ExternalIF ipv4.dns 192.168.1.1
+		sudo nmcli con mod ExternalIF connection.zone external
+		sudo nmcli con up ExternalIF
+		sudo nmcli con add con-name InternalIF type ethernet ifname eth1 ip4 192.168.10.1/24
+		sudo nmcli con up InternalIF
+	in VM2:
+		sudo nmcli con add con-name mylan type ethernet ifname eth0 ip4 192.168.10.2/24 gw4 192.168.10.1
+		sudo nmcli con mod mylan ipv4.dns 192.168.1.1
+		sudo nmcli con up mylan 
+		sudo apt update
+	
+
+					
+
+

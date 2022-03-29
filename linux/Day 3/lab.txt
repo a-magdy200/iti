@@ -1,0 +1,6 @@
+1-Install network manager
+2-Configure the scenario
+3-In vm2, install apache2
+4-In vm2 enable access to apache2
+	from vm1
+		curl http://192.168.10.2

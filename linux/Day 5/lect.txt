@@ -1,0 +1,42 @@
+Ansible:
+	1-Install ansible
+		1-Install pip
+		curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+		python get-pip.py --user
+		1-Install ansible
+		sudo apt install software-properties-common
+		sudo add-apt-repository --yes --update ppa:ansible/ansible
+		sudo apt install ansible
+	2-Task
+		- name: Install apache2
+		  apt: name=apache2
+	3-Define a variable
+		MYNAME: Ahmed M. ElSayed
+	4-To retrieve variable value
+		"{{ MYNAME }}"
+	5-Handler is a task, but will not executed in order. Only executed when detect the notify 
+statement.
+	If a handler called many times from many tasks, it will be fired only once at the last task.
+	- name: install apache2
+	  apt: name=apache2
+          notify: restart apache2
+        - name: update apache2 1
+	  notify: restart apache2
+	- name: update apache2 2
+	  notify: restart apache2
+	-handlers:
+	 - name: restart apache2
+	   service: name=apache2 state=restarted
+	6-Configuration file
+		ansible looks for ansible.cfg in
+			$(pwd)/ansible.cfg
+			~/ansible.cfg
+			/etc/ansible.cfg
+Playbook:
+	1-Change the hostname for each host	
+	2-install apache2 on both servers
+	3-Upload iti.html
+	4-Upload 4 files to the server
+SVN => SCM (github/gitlab)
+
+
