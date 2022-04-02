@@ -1,0 +1,73 @@
+
+======
+1-To download an image
+	sudo docker pull <provider>/<image>:Tag
+	sudo docker pull php
+2-To list downloaded images
+	sudo docker images
+3-To delete an image
+	sudo docker rmi <provider>/<image>:Tag or <image id>
+	sudo docker rmi php
+4-To search for an image
+	sudo docker search <pattern>
+	sudo docker search php
+5-To create a container from an image
+	sudo docker run <options> <image name>	
+	sudo docker run php
+	options:
+		--name <container name>
+		sudo docker run -name php1 php
+		-p <external port>:<container port> : To publish a port (port forwarding)
+		-e : To send environment variable to the container
+			-e <Variable name>=<value>
+
+		-d : To run as daemon
+		--mount : To mount an external volume (Persistent volume)
+			-v <src>:<container fs>
+			src: Directory on docker host
+			container fs: Directory inside the continer
+			Example:
+			-v /tmp/dir:/var/www/html
+			Mouont from docker host directory /tmp/dir inside the container to directory /var/www/html
+		
+6-To list current containers
+	sudo docker ps -a
+7-To delete a container (Stopped)
+	sudo docker rm <container name>
+	sudo docker rm php1
+8-To stop a container
+	sudo docker stop <container name>
+	sudo docker stop webserver1
+9-To start a stopped container
+	sudo docker start <container name>
+	sudo docker start webserver1
+10-To execute a command on a container
+	sudo docker exec <container> <command>
+11-To copy file to a container
+	sudo docker cp <Src> <dst>
+	src: docker host Local file
+	dst: Continer path  <container name>:path
+	sudo docker cp index.html webserver1:/usr/local/apache2/htdocs/index.html
+		Copy index.html to the continer webserver1 to path /usr/local/apache2/htdocs/index.html
+12-To display info about container
+	sudo docker inspect <container>
+	sudo docker inspect webserver1	
+====
+Scenario 1:
+	To create apache2 container
+	sudo docker pull httpd
+	sudo docker run -d -p 8080:80 --name webserver1 httpd
+		Create a container called webserver1 from image httpd which listen on port 80 and forward incoming connections on external tcp port 8080 to the contianer port 80, and start container as daemon
+	sudo docker run -d -p 8080:80 -v /tmp/mysite:/usr/local/apache2/htdocs/ --name webserver1 httpd
+		web application :/usr/local/apache2/htdocs
+======
+Scenario 2:
+	To start an ODOO ERP system
+	1-Pull odoo image
+		sudo docker pull odoo
+	2-Pull postgres:10 image
+		sudo docker pull postbgres:13
+	3-Create a postgres container
+		sudo docker run -d -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -e POSTGRES_DB=postgres --name db postgres:13
+	4-Create the ODOO container
+		sudo docker run -p 8069:8069 --name odoo --link db:db -t odoo

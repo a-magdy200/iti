@@ -1,0 +1,2 @@
+1-Write an ansible playbook installs docker services on a remote host
+2-Write an ansible playbook creates the postgres, and odoo container on a remote docker host you installed from step 1
