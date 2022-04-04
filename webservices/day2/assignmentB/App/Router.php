@@ -16,6 +16,8 @@
       $resource = $uriParts[1];
       $id = isset($uriParts[2]) ? $uriParts[2] : "";
       header("Content-Type: application/json");
+      header("Access-Control-Allow-Origin: *");
+      header("Access-Control-Allow-Headers: *");
       if ($resource == "items") {
         $controller = new ItemsController();
         if ($id === "") {
