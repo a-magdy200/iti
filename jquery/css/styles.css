@@ -4,6 +4,20 @@
 .product-card {
     height: 200px;
 }
+.cart-item p {
+    height: 3rem;
+}
 .product-card .card-text {
     max-height: 72px;
+}
+.droppable {
+    height: 100%;
+}
+.item-bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.item-bg.cart {
+    height: 200px;
 }
