@@ -1,6 +1,5 @@
 const http = require('http');
 const fs = require('fs');
-const queryString = require('querystring');
 const app = http.createServer();
 const serveStatic = (url, res) => {
   fs.readFile(__dirname + url, function (err,data) {
