@@ -15,7 +15,7 @@ Machine B
 
 Machine A
 - ssh-copy-id -i ~/.ssh/id_rsa_pub root@192.168.230.138
-- <Enter Password>
+- `<Enter Password>`
 
 Machine B
 - sudo nano /etc/ssh/sshd_config
