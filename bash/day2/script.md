@@ -5,26 +5,26 @@ Machine A (192.168.230.137)
 Machine B (192.168.230.138)
 
 Machine A 
-ssh-keygen -t rsa -b 8188
+- ssh-keygen -t rsa -b 8188
 
 Machine B
-sudo nano /etc/ssh/sshd_config
-PermitRootLogin yes
-PasswordAuthentication yes
-systemctl restart sshd
+- sudo nano /etc/ssh/sshd_config
+- PermitRootLogin yes
+- PasswordAuthentication yes
+- systemctl restart sshd
 
 Machine A
-ssh-copy-id -i ~/.ssh/id_rsa_pub root@192.168.230.138
-<Enter Password>
+- ssh-copy-id -i ~/.ssh/id_rsa_pub root@192.168.230.138
+- <Enter Password>
 
 Machine B
-sudo nano /etc/ssh/sshd_config
-PermitRootLogin without-password
-PasswordAuthentication no
-PubkeyAuthentication yes
-AuthorizedKeyFile .ssh/authorized_keys .ssh/authorized_keys2 
-systemctl restart sshd
-
+- sudo nano /etc/ssh/sshd_config
+- PermitRootLogin without-password
+- PasswordAuthentication no
+- PubkeyAuthentication yes
+- AuthorizedKeyFile .ssh/authorized_keys .ssh/authorized_keys2 
+- systemctl restart sshd
+```
 #!/bin/bash
 
 ssh root@192.168.230.138
@@ -53,3 +53,4 @@ mkdir wordpress
 cd wordpress
 wp-cli --allow-root core download
 wp-cli --allow-root config create --dbname=wpdb --dbuser=wp --dbpass=wp --locale=en_DB
+```
