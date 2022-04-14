@@ -8,7 +8,12 @@ const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 clientRoutes(app);
-
+app.use((err, req, res, next) => {
+  res.status(400).send({
+    error: err.message,
+    stackTrace: err
+  });
+})
 app.listen(4000, () => {
   console.log("App is Running on port 4000");
 });
