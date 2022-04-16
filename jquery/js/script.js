@@ -33,7 +33,7 @@ const cartProductComponent = product => {
             </div>
             <div class="d-flex align-items-center justify-content-between">
                 <span class="display-5 cart-product-total">${product.price * product.quantity} L.E</span>
-                <button data-product-id="${product.id}" class="ms-4     btn btn-danger item-btn" data-type="remove">Remove <i class="fa fa-remove"></i></button>
+                <button data-product-id="${product.id}" class="ms-4 btn btn-danger item-btn" data-type="remove">Remove <i class="fa fa-remove"></i></button>
             </div>
           </div>
       </div>
