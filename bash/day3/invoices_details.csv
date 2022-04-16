@@ -1,0 +1,4 @@
+seq,inv_id,item_name,item_quantity,item_unit_price
+1,1,apple,3,5
+2,1,orange,5,2
+3,1,straw berry,1,5
