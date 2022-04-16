@@ -1,0 +1,7 @@
+body {
+    height: 100vh;
+}
+#messages {
+    overflow-y: scroll;
+    background-color: #d1cbcb;
+}

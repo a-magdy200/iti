@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chat App</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="p-5 bg-dark text-white-50 d-flex">
+<div class="container flex-1 d-flex">
+    <div id="chat-container" class="col-12 flex-1 d-flex flex-column col-lg-8 offset-lg-2">
+        <div id="messages" class="flex-1 h-100 p-3 mb-4 rounded-3">
+            <div class="d-flex mb-5 text-dark bg-warning rounded-3 align-items-center p-3">
+                <span class="display-6 me-2">System</span>
+                <p class="lead m-0 fw-bold text-center flex-grow-1">Welcome to our chat</p>
+            </div>
+        </div>
+        <div class="d-flex align-items-center">
+            <input type="text" id="message"  class="form-control"/>
+            <button class="btn btn-primary ms-3" id="send"><i class="fa fa-send-o"></i></button>
+        </div>
+    </div>
+</div>
+<script src="/static/js/bootstrap.bundle.min.js"></script>
+<script src="/static/js/socket.io.min.js"></script>
+<script src="/static/js/script.js"></script>
+</body>
+</html>
