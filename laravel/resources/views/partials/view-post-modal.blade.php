@@ -4,8 +4,11 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-body bg-dark p-5">
-                <div id="loader" class="d-flex align-items-center justify-content-center">
-                    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                <div id="loader" class="d-flex text-white-50 align-items-center justify-content-center">
+                    <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div class="spinner-border mx-2" style="width: 3rem; height: 3rem;" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
                     <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">

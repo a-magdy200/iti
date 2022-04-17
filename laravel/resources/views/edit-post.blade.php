@@ -1,4 +1,5 @@
-@include('partials.header')
+@extends('layouts.app')
+@section('main')
 <div class="container p-5">
     <form action="{{route('posts.update', ['post'=>$post])}}" class="text-white" method="post">
         <div class="py-4 mb-4">
@@ -29,4 +30,4 @@
         @csrf
     </form>
 </div>
-@include('partials.footer')
+@endsection

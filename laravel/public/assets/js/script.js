@@ -17,16 +17,18 @@ document.body.addEventListener('click', e => {
         fetch(`/api/posts/${postId}`)
         .then(r => r.json())
         .then(({data}) => {
-            const {title, description, human_readable_date, user} = data;
-            postTitle.textContent = title;
-            postDescription.textContent = description;
-            postName.textContent = user.name;
-            postEmail.textContent = user.email;
-            postCreatedAt.textContent = human_readable_date;
-            loader.classList.remove('d-flex');
-            loader.classList.add('d-none');
-            modalData.classList.remove('d-none');
-            modalData.classList.add('d-block');
+            setTimeout(() => {
+                const {title, description, human_readable_date, user} = data;
+                postTitle.textContent = title;
+                postDescription.textContent = description;
+                postName.textContent = user.name;
+                postEmail.textContent = user.email;
+                postCreatedAt.textContent = human_readable_date;
+                loader.classList.remove('d-flex');
+                loader.classList.add('d-none');
+                modalData.classList.remove('d-none');
+                modalData.classList.add('d-block');
+            }, 2000);
         })
 
     }

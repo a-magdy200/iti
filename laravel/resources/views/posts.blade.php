@@ -1,4 +1,5 @@
-@include('partials.header')
+@extends('layouts.app')
+@section('main')
 <div class="container p-5">
     <div class="mb-5 d-flex justify-content-center">
         <x-link-button type="success" to="{{route('posts.create')}}" icon="plus" text="Create New" />
@@ -45,4 +46,4 @@
     </div>
 </div>
 @include('partials.view-post-modal')
-@include('partials.footer')
+@endsection
