@@ -8,5 +8,5 @@
 
 
 ## Initial Data
-- `#5` Users
-- `#5` Posts randomly distributed to any of these users
+- `#10` Users
+- `#500` Posts randomly distributed to any of these users
