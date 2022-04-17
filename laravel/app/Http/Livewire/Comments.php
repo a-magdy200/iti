@@ -25,13 +25,23 @@ class Comments extends Component
         return view('livewire.comments')->with(['post'=>$post, 'comments' => $this->comments]);
     }
     public function addComment() {
-        $comment = new Comment([
+//        $comment = new Comment([
+//            'user_id' => $this->user_id,
+//            'post_id' => $this->postId,
+//            'comment' => $this->comment
+//        ]);
+        $post = Post::find($this->postId);
+        $post->comments()->create([
+            'comment'=>$this->comment,
             'user_id' => $this->user_id,
-            'post_id' => $this->postId,
-            'comment' => $this->comment
         ]);
-        $comment->save();
-        $this->comments[] = $comment;
+//        $comment = new Comment([
+//            'commentable_id' => $this->user_id,
+//            'post_id' => $this->postId,
+//            'comment' => $this->comment
+//        ]);
+//        $comment->save();
+//        $this->comments[] = $comment;
         $this->render();
         $this->comment = '';
         $this->user_id='';

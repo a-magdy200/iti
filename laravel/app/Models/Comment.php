@@ -13,15 +13,24 @@ class Comment extends Model
     use SoftDeletes;
     protected $fillable = [
         'comment',
-        'post_id',
+        'commentable_type',
+        'commentable_id',
         'user_id'
     ];
+//    protected $fillable = [
+//        'comment',
+//        'post_id',
+//        'user_id'
+//    ];
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    public function post(): BelongsTo
-    {
-        return $this->belongsTo(Post::class);
+//    public function post(): BelongsTo
+//    {
+//        return $this->belongsTo(Post::class);
+//    }
+    public function commentable() {
+        return $this->morphTo();
     }
 }

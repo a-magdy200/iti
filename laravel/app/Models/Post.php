@@ -20,9 +20,12 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'created_by');
     }
-    public function comments(): HasMany
-    {
-        return $this->hasMany(Comment::class)->withTrashed();
+//    public function comments(): HasMany
+//    {
+//        return $this->hasMany(Comment::class)->withTrashed();
+//    }
+    public function comments() {
+        return $this->morphMany(Comment::class, 'commentable')->withTrashed();
     }
     public function getHumanReadableDateAttribute(): string
     {
