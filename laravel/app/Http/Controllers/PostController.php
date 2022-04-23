@@ -46,10 +46,17 @@ class PostController extends Controller
      * @param  \App\Http\Requests\StorePostRequest  $request
      * @return Application|RedirectResponse|Redirector
      */
-    public function store(StorePostRequest $request)
+    public function store(StorePostRequest $request): Redirector|RedirectResponse|Application
     {
         //
-        $post = new Post($request->all());
+//        $request->validated();
+//        dd($request->all());
+        $validated = $request->validated();
+//        dd($request->image);
+        $post = new Post($validated);
+        $post->generateSlug();
+        $path = $request->image->storeAs('posts', $post->slug . '-' . $request->image->getClientOriginalName());
+        $post->image = $path;
         $post->save();
         return to_route('posts.index');
     }
@@ -86,7 +93,7 @@ class PostController extends Controller
      * @param Post $post
      * @return Application|Factory|View
      */
-    public function edit(Post $post)
+    public function edit(Post $post): View|Factory|Application
     {
         //
         $users = User::all();
@@ -100,13 +107,15 @@ class PostController extends Controller
      * @param Post $post
      * @return Application|RedirectResponse|Redirector
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdatePostRequest $request, Post $post): Redirector|RedirectResponse|Application
     {
+        $post->syncTags($request->get('tags'));
         $post->update($request->all());
         return to_route("posts.show", ['post' => $post]);
     }
 
-    public function delete(Post $post) {
+    public function delete(Post $post): Factory|View|Application
+    {
         return view('delete-post')->with(['post'=>$post]);
     }
     /**
@@ -115,7 +124,7 @@ class PostController extends Controller
      * @param Post $post
      * @return Application|RedirectResponse|Redirector
      */
-    public function destroy(Post $post)
+    public function destroy(Post $post): Redirector|RedirectResponse|Application
     {
         //
         $post->delete();

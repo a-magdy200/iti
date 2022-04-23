@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
 use App\Models\Post;
+use Illuminate\Http\RedirectResponse;
 
 class CommentController extends Controller
 {
@@ -33,7 +34,7 @@ class CommentController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreCommentRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function store(Post $post, StoreCommentRequest $request)
     {
@@ -88,11 +89,13 @@ class CommentController extends Controller
     {
         //
     }
-    public function delete(Post $post, Comment $comment) {
+    public function delete(Post $post, Comment $comment): RedirectResponse
+    {
         $comment->delete();
         return to_route("posts.show",['post'=>$post]);
     }
-    public function restore(Post $post, int $comment) {
+    public function restore(Post $post, int $comment): RedirectResponse
+    {
         Comment::withTrashed()->find($comment)->restore();
         return to_route("posts.show",['post'=>$post]);
     }

@@ -8,6 +8,7 @@
     <title>Posts CRUD | Laravel Day 1</title>
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/assets/css/app.css"/>
     @livewireStyles
 </head>
 <body class="bg-dark text-white-50">

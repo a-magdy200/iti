@@ -1,0 +1,9 @@
+.card.dark {
+    background-color: #2f3337;
+}
+.card.dark .card-header {
+    background-color: #0003;
+}
+.post-image {
+    height: 300px;
+}

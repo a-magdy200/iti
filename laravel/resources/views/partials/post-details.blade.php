@@ -7,6 +7,9 @@
             <x-link-button to="{{route('posts.delete', ['post'=>$post])}}" icon="times" text="Delete" type="danger" />
         </div>
     </div>
+    <div class="d-flex align-items-center justify-content-center mb-5">
+        <img src="{{$post->image}}" alt="Post image" class="img-thumbnail post-image">
+    </div>
     <div class="card mb-5">
         <div class="card-header">
             Post info

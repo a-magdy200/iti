@@ -2,6 +2,7 @@
 
     use App\Http\Controllers\CommentController;
     use App\Http\Controllers\PostController;
+    use Illuminate\Support\Facades\Auth;
     use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,15 +17,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return to_route("posts.index");
+});
+Route::middleware('auth')->group(function() {
+    Route::resource("/posts", PostController::class);
+    Route::get('/posts/{post}/delete', [PostController::class, 'delete'])->name('posts.delete');
+    Route::get('/posts/{post}/restore', [PostController::class, 'restore'])->name('posts.restore');
+    Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::get('/posts/{post}/comments/{comment}/delete', [CommentController::class, 'delete'])->name('comments.delete');
+    Route::get('/posts/{post}/comments/{comment}/restore', [CommentController::class, 'restore'])->name('comments.restore');
+    Route::get('/posts/api/{post}', [PostController::class, 'showAjax'])->name("posts.api.show");
+    Route::get('/home', function () {
+        return to_route("posts.index");
+    })->name('home');
 });
 
-Route::resource("/posts", PostController::class);
-Route::get('/posts/{post}/delete', [PostController::class, 'delete'])->name('posts.delete');
-Route::get('/posts/{post}/restore', [PostController::class, 'restore'])->name('posts.restore');
-//Route::livewire('/posts/{post}/comments', 'comments');
-//Route::livewire('/posts/{post}/comments/{comment}/delete', [CommentController::class, 'delete'])->name('comments.delete');
-//Route::livewire('/posts/{post}/comments/{comment}/restore', [CommentController::class, 'restore'])->name('comments.restore');
-Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
-Route::get('/posts/{post}/comments/{comment}/delete', [CommentController::class, 'delete'])->name('comments.delete');
-Route::get('/posts/{post}/comments/{comment}/restore', [CommentController::class, 'restore'])->name('comments.restore');
+Auth::routes();

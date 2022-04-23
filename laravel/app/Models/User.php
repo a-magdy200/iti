@@ -47,7 +47,10 @@ class User extends Authenticatable
 //    }
     public function posts(): HasMany
     {
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class, 'created_by', 'id');
+    }
+    public function postsCount(): int {
+        return $this->hasMany(Post::class, 'created_by', 'id')->count();
     }
     public function comments(): HasMany
     {

@@ -11,9 +11,11 @@ class StorePostRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return true;
+        $user = auth()->user();
+        $postsCount = $user->postsCount();
+        return $postsCount < 3;
     }
 
     /**
@@ -24,7 +26,11 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|min:3|unique:posts,title',
+            'description' => 'required|min:10',
+            'created_by' => 'required|exists:users,id',
+            'tags' => 'required|string',
+            'image' => 'required|file|mimes:jpg,bmp,png'
         ];
     }
 }

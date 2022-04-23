@@ -20,7 +20,8 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->realText(30),
             'description' => $this->faker->realText(),
-            'created_by' => rand(1,10)
+            'created_by' => rand(1,10),
+            'image' => 'https://picsum.photos/id/'. rand(1000, 10000) .'/200/300'
         ];
     }
 }

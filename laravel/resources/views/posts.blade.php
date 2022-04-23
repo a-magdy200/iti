@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.page-layout')
+
 @section('main')
 <div class="container p-5">
     <div class="mb-5 d-flex justify-content-center">
@@ -7,7 +8,7 @@
 <table class="table text-white">
     <thead class="text-white-50">
     <tr>
-        <th scope="col">ID</th>
+        <th scope="col">Slug</th>
         <th scope="col">Title</th>
         <th scope="col">Description</th>
         <th scope="col">Created By</th>
@@ -19,13 +20,13 @@
     @foreach($posts as $post)
         <tr>
             @if ($post->deleted_at)
-                <td>{{$post->id}}</td>
+                <td>{{$post->slug}}</td>
                 <td colspan="4" class="text-center lead">Deleted post</td>
                 <td>
                     <x-link-button to="{{route('posts.restore', ['post'=>$post])}}" icon="check" text="Restore" type="info" />
                 </td>
             @else
-            <td>{{$post->id}}</td>
+            <td>{{$post->slug}}</td>
             <td>{{$post->title}}</td>
             <td>{{substr($post->description, 0, 50)}}</td>
             <td>{{$post->user->name}}</td>
