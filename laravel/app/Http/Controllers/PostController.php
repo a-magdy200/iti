@@ -13,6 +13,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -55,9 +56,11 @@ class PostController extends Controller
 //        dd($request->image);
         $post = new Post($validated);
         $post->generateSlug();
-        $path = $request->image->storeAs('posts', $post->slug . '-' . $request->image->getClientOriginalName());
+        $path = 'posts/'. $post->slug . '-' . $request->image->getClientOriginalName();
+        $request->image->storeAs('public/posts', $post->slug . '-' . $request->image->getClientOriginalName());
         $post->image = $path;
         $post->save();
+        $post->syncTags(explode(',', $request->get('tags')));
         return to_route('posts.index');
     }
 
@@ -109,8 +112,18 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post): Redirector|RedirectResponse|Application
     {
-        $post->syncTags($request->get('tags'));
-        $post->update($request->all());
+//        $tags = preg_split(',', $request->get('tags'));
+//        $post->syncTags($tags);
+        if ($request->has('image')) {
+            $oldImage = $post->image;
+            Storage::delete($oldImage);
+        }
+        $validated = $request->validated();
+        if ($validated['image'] == null) {
+            $validated['image'] = $post->image;
+        }
+        $post->update($validated);
+        $post->syncTags(explode(',', $request->get('tags')));
         return to_route("posts.show", ['post' => $post]);
     }
 

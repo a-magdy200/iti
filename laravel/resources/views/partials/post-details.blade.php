@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="d-flex align-items-center justify-content-center mb-5">
-        <img src="{{$post->image}}" alt="Post image" class="img-thumbnail post-image">
+        <img src="{{asset('storage/'.$post->image)}}" alt="Post image" class="img-thumbnail post-image">
     </div>
     <div class="card mb-5">
         <div class="card-header">

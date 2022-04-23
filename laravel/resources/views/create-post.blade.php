@@ -8,7 +8,7 @@
         </div>
         <div class="d-flex flex-wrap align-items-center mb-4">
             <label for="title" class="me-2 flex-grow-0 form-label">Title</label>
-            <input type="text" value="{{old('title')}}" id="title" class="form-control {{$errors->has('title') ? 'is-invalid' : (old('title') ? 'is-valid' : '') }}" name="title" placeholder="Something New"/>
+            <input required type="text" value="{{old('title')}}" id="title" class="form-control {{$errors->has('title') ? 'is-invalid' : (old('title') ? 'is-valid' : '') }}" name="title" placeholder="Something New"/>
             @error('title')
             <div class="invalid-feedback w-100">
                 {{$message}}
@@ -36,7 +36,12 @@
         </div>
         <div class="d-flex flex-wrap align-items-center mb-4">
             <label for="image" class="form-label">Post image</label>
-            <input class="form-control" required type="file" name="image" id="image">
+            <input class="form-control {{$errors->has('image') ? 'is-invalid' : (old('image') ? 'is-valid' : '') }}" required type="file" name="image" id="image">
+            @error('image')
+            <div class="invalid-feedback w-100">
+                {{$message}}
+            </div>
+            @enderror
         </div>
         <div class="d-flex flex-wrap align-items-center mb-4">
             <label for="tags" class="me-2 flex-grow-0 form-label">Tags</label>

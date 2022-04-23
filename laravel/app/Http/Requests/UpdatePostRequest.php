@@ -28,9 +28,9 @@ class UpdatePostRequest extends FormRequest
         return [
             'title' => ['required','min:3',Rule::unique('posts')->ignore($title, 'title')],
             'description' => 'required|min:10',
-            'user_id' => 'required|exists:users,id',
+            'created_by' => 'required|exists:users,id',
             'tags' => 'required|string',
-            'image' => 'file|mimes:jpg,bmp,png'
+            'image' => 'nullable|file|mimes:jpg,png'
         ];
     }
 }
