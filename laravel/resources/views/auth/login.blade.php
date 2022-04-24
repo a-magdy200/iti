@@ -64,6 +64,11 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <div class="col-md-8 offset-md-4">
+                                <a href="/auth/redirect" class="btn btn-warning">Login with GitHub <i class="fa fa-github"></i></a>
+                            </div>
+                        </div>
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 Don't have an account?
