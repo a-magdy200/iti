@@ -16,6 +16,9 @@
                     </div>
                 </div>
                 <div id="viewPostModalData" class="d-none">
+                    <div class="d-flex align-items-center justify-content-center mb-5">
+                        <img src="" id="viewPostModalImage" alt="Post image" class="img-thumbnail post-image">
+                    </div>
                     <div class="card mb-5">
                         <div class="card-header">
                             Post info

@@ -4,6 +4,7 @@ const postDescription = document.getElementById('viewPostModalDescription');
 const postName = document.getElementById('viewPostModalName');
 const postEmail = document.getElementById('viewPostModalEmail');
 const postCreatedAt = document.getElementById('viewPostModalCreatedAt');
+const postImage = document.getElementById('viewPostModalImage');
 const modalData = document.getElementById('viewPostModalData');
 const loader = document.getElementById('loader');
 document.body.addEventListener('click', e => {
@@ -18,11 +19,12 @@ document.body.addEventListener('click', e => {
         .then(r => r.json())
         .then(({data}) => {
             setTimeout(() => {
-                const {title, description, human_readable_date, user} = data;
+                const {title, description, human_readable_date, user, image} = data;
                 postTitle.textContent = title;
                 postDescription.textContent = description;
                 postName.textContent = user.name;
                 postEmail.textContent = user.email;
+                postImage.src = `/storage/${image}`;
                 postCreatedAt.textContent = human_readable_date;
                 loader.classList.remove('d-flex');
                 loader.classList.add('d-none');

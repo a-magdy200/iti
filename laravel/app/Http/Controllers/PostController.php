@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\PruneOldPostsJob;
+use App\Http\Requests\APIStorePostRequest;
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\User;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -18,7 +20,48 @@ use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+    private function createPost($request, $validated) {
+        $post = new Post($validated);
+        $post->generateSlug();
+        $path = 'posts/'. $post->slug . '-' . $request->image->getClientOriginalName();
+        $request->image->storeAs('public/posts', $post->slug . '-' . $request->image->getClientOriginalName());
+        $post->image = $path;
+        $post->save();
+        $post->syncTags(explode(',', $request->get('tags')));
+    }
     /**
+     * Display a listing of the resource.
+     *
+     * @return Application|Response|ResponseFactory
+     */
+    public function apiStore(APIStorePostRequest $request): Application|ResponseFactory|Response
+    {
+        //
+        $validated = $request->validated();
+        $this->createPost($request, $validated);
+        return response()->setStatusCode(200);
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return JsonResponse
+     */
+    public function apiShow(Post $post): JsonResponse
+    {
+        return response()->json(new PostResource($post));
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return JsonResponse
+     */
+    public function apiIndex(): JsonResponse
+    {
+        //
+        $posts = Post::withTrashed()->with('user')->paginate(10);
+        return response()->json(PostResource::collection($posts));
+    }
+ /**
      * Display a listing of the resource.
      *
      * @return Application|Factory|View|Response
@@ -26,7 +69,7 @@ class PostController extends Controller
     public function index(): View|Factory|Response|Application
     {
         //
-        $posts = Post::withTrashed()->paginate(10);
+        $posts = Post::withTrashed()->with('user')->paginate(10);
         return view("posts")->with(['posts' => $posts]);
     }
 
@@ -50,18 +93,8 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request): Redirector|RedirectResponse|Application
     {
-        //
-//        $request->validated();
-//        dd($request->all());
         $validated = $request->validated();
-//        dd($request->image);
-        $post = new Post($validated);
-        $post->generateSlug();
-        $path = 'posts/'. $post->slug . '-' . $request->image->getClientOriginalName();
-        $request->image->storeAs('public/posts', $post->slug . '-' . $request->image->getClientOriginalName());
-        $post->image = $path;
-        $post->save();
-        $post->syncTags(explode(',', $request->get('tags')));
+        $this->createPost($request, $validated);
         return to_route('posts.index');
     }
 
@@ -113,8 +146,6 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post): Redirector|RedirectResponse|Application
     {
-//        $tags = preg_split(',', $request->get('tags'));
-//        $post->syncTags($tags);
         if ($request->has('image')) {
             $oldImage = $post->image;
             Storage::delete($oldImage);

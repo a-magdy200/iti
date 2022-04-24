@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -36,5 +38,15 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function apiLogin(Request $request) {
+        if (auth()->attempt($request->only(['email', 'password']))) {
+            $user = auth()->user();
+            $user['token'] = $user->createToken('api-login')->plainTextToken;
+            return response()->json($user);
+        } else {
+            return response()->setStatusCode(403);
+        }
     }
 }
