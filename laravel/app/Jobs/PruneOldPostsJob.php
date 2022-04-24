@@ -2,8 +2,9 @@
 
 namespace App\Jobs;
 
+use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -31,5 +32,6 @@ class PruneOldPostsJob implements ShouldQueue
     public function handle()
     {
         //
+        Post::whereDate('created_at', '<', Carbon::today()->subYears(2))->delete();
     }
 }

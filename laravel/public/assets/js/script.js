@@ -14,7 +14,7 @@ document.body.addEventListener('click', e => {
         modalData.classList.add('d-none');
         modalData.classList.remove('d-block');
         modal.show();
-        fetch(`/api/posts/${postId}`)
+        fetch(`/posts/api/${postId}`)
         .then(r => r.json())
         .then(({data}) => {
             setTimeout(() => {
