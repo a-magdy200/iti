@@ -21,6 +21,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     BrowserModule
   ],
   providers: [],
+  exports: [
+    StudentComponent,
+    DepartmentComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

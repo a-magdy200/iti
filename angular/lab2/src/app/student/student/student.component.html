@@ -1,0 +1,91 @@
+<h2 class="mb-2">Students</h2>
+<form class="row mb-2 row-cols-lg-auto g-3 align-items-center">
+  <div class="col-12">
+    <label class="visually-hidden" for="student_name">Name</label>
+    <input [(ngModel)]="name" type="text" name="student_name" class="form-control" id="student_name" placeholder="Name">
+  </div>
+
+  <div class="col-12">
+    <label class="visually-hidden" for="student_age">Age</label>
+    <input [(ngModel)]="age" type="text" name="student_age" class="form-control" id="student_age" placeholder="Age">
+  </div>
+  <div class="col-12">
+    <label class="visually-hidden" for="student_department_number">Department #</label>
+    <input [(ngModel)]="department_number" type="text" name="student_student_number" class="form-control" id="student_department_number" placeholder="Department #">
+  </div>
+  <div class="col-12">
+    <button (click)="submit($event)" type="submit" class="btn btn-primary">Add</button>
+  </div>
+</form>
+<div class="p-4" *ngIf="showDetails">
+  <div class="alert alert-info">
+    <div class="d-flex align-items-center">
+      <span>ID: </span>
+      <span>{{studentDetails.id}}</span>
+    </div>
+    <div class="d-flex align-items-center">
+      <span>Name: </span>
+      <span>{{studentDetails.name}}</span>
+    </div>
+    <div class="d-flex align-items-center">
+      <span>Age: </span>
+      <span>{{studentDetails.age}}</span>
+    </div>
+    <div class="d-flex align-items-center">
+      <span>Department: </span>
+      <span>{{studentDetails.department_number}}</span>
+    </div>
+    <button (click)="hideDetails()" class="btn btn-warning">Hide</button>
+  </div>
+</div>
+<table class="table mb-5">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Age</th>
+    <th scope="col">student #</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of students">
+    <ng-container *ngIf="!student.isEditing">
+    <td>{{student.id}}</td>
+    <td>{{student.name}}</td>
+    <td>{{student.age}}</td>
+    <td>{{student.department_number}}</td>
+    <td>
+      <button (click)="details(student)" class="btn btn-outline-info">Details</button>
+      <button (click)="edit(student)" class="btn btn-outline-success mx-2">Edit</button>
+      <button (click)="remove(student)" class="btn btn-outline-danger">Delete</button>
+    </td>
+    </ng-container>
+
+    <ng-container *ngIf="student.isEditing">
+      <td>{{student.id}}</td>
+      <td>
+        <div class="col-12">
+          <label class="visually-hidden" [for]="'student_name_' + student.id">Name</label>
+          <input [(ngModel)]="student.name" type="text" class="form-control" [id]="'student_name_' + student.id" [name]="'student_name_' + student.id" placeholder="Name">
+        </div>
+      </td>
+      <td>
+        <div class="col-12">
+          <label class="visually-hidden" [for]="'student_age_'+student.id">Age</label>
+          <input [(ngModel)]="student.age" type="text" class="form-control" [id]="'student_age_' + student.id" [name]="'student_age_' + student.id" placeholder="Age">
+        </div>
+      </td>
+      <td>
+        <div class="col-12">
+          <label class="visually-hidden" [for]="'student_department_number_' + student.id">Department #</label>
+          <input [(ngModel)]="student.department_number" type="text" class="form-control" [id]="'student_department_number_' + student.id" [name]="'student_department_number_' + student.id" placeholder="Department #">
+        </div>
+      </td>
+      <td>
+        <button (click)="save(student)" class="btn btn-success">Save</button>
+      </td>
+    </ng-container>
+  </tr>
+  </tbody>
+</table>
