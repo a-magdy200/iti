@@ -1,0 +1,14 @@
+<app-header></app-header>
+<div class="d-flex align-items-center">
+  <app-sidebar></app-sidebar>
+  <div id="contenttext">
+    <div style="padding:10px">
+      <app-student></app-student>
+      <app-department></app-department>
+      <h1>{{title}}</h1>
+      <img [src]="imageSrc" alt="test image"/>
+      <h2 [class]="heading"> test title</h2>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
