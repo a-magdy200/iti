@@ -25,7 +25,7 @@
     </div>
     <div class="d-flex align-items-center">
       <span>Name: </span>
-      <span>{{studentDetails.name}}</span>
+      <span>{{studentDetails.name | titlecase}}</span>
     </div>
     <div class="d-flex align-items-center">
       <span>Age: </span>
@@ -52,7 +52,7 @@
   <tr *ngFor="let student of students">
     <ng-container *ngIf="!student.isEditing">
     <td>{{student.id}}</td>
-    <td>{{student.name}}</td>
+    <td>{{student.name | titlecase}}</td>
     <td>{{student.age}}</td>
     <td>{{student.department_number}}</td>
     <td>
