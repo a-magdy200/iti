@@ -25,7 +25,6 @@ def problem_three(*args):
         else:
             front_string += current_string[:mid_string + 1]
             back_string += current_string[mid_string + 1:]
-
     return front_string + back_string
 
 
@@ -65,8 +64,8 @@ def problem_six(string, character):
 
 # print(problem_one(x1=1, x2=2, y1=1, y2=3))
 # print(problem_two(1, 2, 2, 3, 2))
-# print(problem_three("abced", "abdg"))
+print(problem_three("Hassan", "Ahmed"))
 # problem_four()
 # print(problem_five("mobile"))
-print(problem_six("Google", "o"))
+# print(problem_six("Google", "o"))
 
