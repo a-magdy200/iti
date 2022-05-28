@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block title %}
+Todos List
+{% endblock %}
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Note</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todos %}
+                <tr>
+                    <td>{{ todo.id }}</td>
+                    <td>{{ todo.title }}</td>
+                    <td>{{ todo.note }}</td>
+                    <td><a href="/todos/{{ todo.id }}">View</a></td>
+                    <td><a href="/todos/{{ todo.id }}/delete">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/todos/create">Create Todo</a>
+{% endblock %}

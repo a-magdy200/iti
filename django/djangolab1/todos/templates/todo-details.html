@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+{% block title %}
+Todos List
+{% endblock %}
+{% block content %}
+    <p>
+        <span>ID</span>
+        <span>{{ todo.id }}</span>
+    </p>
+    <p>
+        <span>Title</span>
+        <span>{{ todo.title }}</span>
+    </p>
+    <p>
+        <span>Note</span>
+        <span>{{ todo.note }}</span>
+    </p>
+    <a href="/todos/{{ todo.id }}/edit">Edit</a>
+{% endblock %}

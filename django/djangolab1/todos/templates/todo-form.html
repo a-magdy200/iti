@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+    <form action="#" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <div>
+            <button type="reset">Clear</button>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+{% endblock %}
