@@ -1,0 +1,28 @@
+<h1>Products</h1>
+
+<div id="products">
+  <% @products.each do |product| %>
+    <%= render product %>
+
+    <td>
+      <% if can? :update, product %>
+        <%= link_to "Edit", edit_item_path(product) %>
+      <% end %>
+    </td>
+
+    <td>
+      <% if can? :destroy, product %>
+        <%= link_to "Destroy", item, method: :delete,
+                    data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </td>
+    <p>
+      <%= link_to "Show this product", product %>
+    </p>
+  <% end %>
+</div>
+
+<% if can? :create, Product %>
+  <%= link_to "New product", new_item_path %>
+
+<% end %>
