@@ -1,9 +1,0 @@
-<h1>Name:<%= @product.name %></h1>
-<p>Description<%= @product.description %></p>
-<p>Price:<%= @product.price %></p>
-<p>Created At:<%= @product.created_at %></p>
-<p>Updated At:<%= @product.updated_at %></p>
-<div>
-  <%= image_tag @product.image, style: "width:200px;display:block" %>
-</div>
-<%= link_to "show", root_path %>

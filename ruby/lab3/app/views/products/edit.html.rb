@@ -1,2 +1,1 @@
-<h1>create product</h1>
 <%= render "form", product: @product %>
